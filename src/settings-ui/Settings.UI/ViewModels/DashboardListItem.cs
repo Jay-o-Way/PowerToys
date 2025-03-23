@@ -66,6 +66,6 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ObservableCollection<DashboardModuleItem> DashboardModuleItems { get; set; } = new ObservableCollection<DashboardModuleItem>();
+        public ObservableCollection<DashboardModuleItem> DashboardModuleItems { get; set; } = [];
     }
 }

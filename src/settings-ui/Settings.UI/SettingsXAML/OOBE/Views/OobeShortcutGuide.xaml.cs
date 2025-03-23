@@ -60,7 +60,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
             if ((bool)settingsProperties.UseLegacyPressWinKeyBehavior.Value)
             {
-                HotkeyControl.Keys = new List<object> { 92 };
+                HotkeyControl.Keys = [92];
             }
             else
             {

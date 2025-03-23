@@ -117,13 +117,13 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         /// <summary>
         /// Gets a collection of functions that handle IPC responses.
         /// </summary>
-        public List<System.Action<JsonObject>> IPCResponseHandleList { get; } = new List<System.Action<JsonObject>>();
+        public List<System.Action<JsonObject>> IPCResponseHandleList { get; } = [];
 
         public static bool IsElevated { get; set; }
 
         public static bool IsUserAnAdmin { get; set; }
 
-        private Dictionary<Type, NavigationViewItem> _navViewParentLookup = new Dictionary<Type, NavigationViewItem>();
+        private Dictionary<Type, NavigationViewItem> _navViewParentLookup = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ShellPage"/> class.

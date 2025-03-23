@@ -49,7 +49,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public int DemoTypeMinTypingSpeed { get; } = 100;
 
-        public ObservableCollection<Tuple<string, string>> MicrophoneList { get; set; } = new ObservableCollection<Tuple<string, string>>();
+        public ObservableCollection<Tuple<string, string>> MicrophoneList { get; set; } = [];
 
         private async void LoadMicrophoneList()
         {

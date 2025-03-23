@@ -31,9 +31,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public Func<string, int> SendConfigMSG { get; }
 
-        public ObservableCollection<DashboardListItem> ActiveModules { get; set; } = new ObservableCollection<DashboardListItem>();
+        public ObservableCollection<DashboardListItem> ActiveModules { get; set; } = [];
 
-        public ObservableCollection<DashboardListItem> DisabledModules { get; set; } = new ObservableCollection<DashboardListItem>();
+        public ObservableCollection<DashboardListItem> DisabledModules { get; set; } = [];
 
         public bool UpdateAvailable { get; set; }
 
@@ -506,7 +506,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             ISettingsRepository<ShortcutGuideSettings> moduleSettingsRepository = SettingsRepository<ShortcutGuideSettings>.GetInstance(new SettingsUtils());
 
             var shortcut = moduleSettingsRepository.SettingsConfig.Properties.UseLegacyPressWinKeyBehavior.Value
-                ? new List<object> { 92 } // Right Windows key code
+                ? [92] // Right Windows key code
                 : moduleSettingsRepository.SettingsConfig.Properties.OpenShortcutGuide.GetKeysList();
 
             var list = new List<DashboardModuleItem>

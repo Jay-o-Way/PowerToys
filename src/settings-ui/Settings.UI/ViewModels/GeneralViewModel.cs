@@ -886,7 +886,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             }
         }
 
-        public ObservableCollection<LanguageModel> Languages { get; } = new ObservableCollection<LanguageModel>();
+        public ObservableCollection<LanguageModel> Languages { get; } = [];
 
         public int LanguagesIndex
         {

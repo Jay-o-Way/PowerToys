@@ -37,7 +37,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             // set the callback functions value to handle outgoing IPC message.
             SendIPCMessage = ipcMSGCallBackFunc;
             resourceLoader = ResourceLoaderInstance.ResourceLoader;
-            FlyoutMenuItems = new ObservableCollection<FlyoutMenuItem>();
+            FlyoutMenuItems = [];
 
             AddFlyoutMenuItem(ModuleType.ColorPicker);
             AddFlyoutMenuItem(ModuleType.CmdPal);

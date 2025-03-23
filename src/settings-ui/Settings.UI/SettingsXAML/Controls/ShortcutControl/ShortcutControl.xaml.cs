@@ -18,7 +18,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     public sealed partial class ShortcutControl : UserControl, IDisposable
     {
         private readonly UIntPtr ignoreKeyEventFlag = (UIntPtr)0x5555;
-        private System.Collections.Generic.HashSet<VirtualKey> _modifierKeysOnEntering = new System.Collections.Generic.HashSet<VirtualKey>();
+        private System.Collections.Generic.HashSet<VirtualKey> _modifierKeysOnEntering = [];
         private bool _enabled;
         private HotkeySettings hotkeySettings;
         private HotkeySettings internalSettings;

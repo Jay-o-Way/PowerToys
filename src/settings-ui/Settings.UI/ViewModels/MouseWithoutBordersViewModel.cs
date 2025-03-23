@@ -553,19 +553,19 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         // Loads the machine matrix, taking into account changes to the machine pool.
         private void LoadMachineMatrixString()
         {
-            List<string> loadMachineMatrixString = Settings.Properties.MachineMatrixString ?? new List<string>() { string.Empty, string.Empty, string.Empty, string.Empty };
+            List<string> loadMachineMatrixString = Settings.Properties.MachineMatrixString ?? [string.Empty, string.Empty, string.Empty, string.Empty];
 
             if (loadMachineMatrixString.Count < 4)
             {
                 // Current logic of MWB assumes there are always 4 slots. Any other configuration means data corruption here.
-                loadMachineMatrixString = new List<string>() { string.Empty, string.Empty, string.Empty, string.Empty };
+                loadMachineMatrixString = [string.Empty, string.Empty, string.Empty, string.Empty];
             }
 
             bool editedTheMatrix = false; // keep track of changes to the matrix because of changes to the available machine pool.
 
             if (!string.IsNullOrEmpty(Settings.Properties.MachinePool?.Value))
             {
-                List<string> availableMachines = new List<string>();
+                List<string> availableMachines = [];
 
                 // Format of this field is "NAME1:ID1,NAME2:ID2,..."
                 // Load the available machines

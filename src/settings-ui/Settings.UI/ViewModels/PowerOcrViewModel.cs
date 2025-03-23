@@ -41,7 +41,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         private int _languageIndex;
         private List<Language> possibleOcrLanguages;
 
-        public ObservableCollection<string> AvailableLanguages { get; } = new ObservableCollection<string>();
+        public ObservableCollection<string> AvailableLanguages { get; } = [];
 
         public int LanguageIndex
         {

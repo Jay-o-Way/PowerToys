@@ -196,7 +196,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             }
         }
 
-        public ObservableCollection<ColorFormatModel> ColorFormats { get; } = new ObservableCollection<ColorFormatModel>();
+        public ObservableCollection<ColorFormatModel> ColorFormats { get; } = [];
 
         public Dictionary<string, string> ColorFormatsPreview
         {
