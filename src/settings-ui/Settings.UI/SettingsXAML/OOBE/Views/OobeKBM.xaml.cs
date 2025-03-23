@@ -26,10 +26,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         private void SettingsLaunchButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
-            if (OobeShellPage.OpenMainWindowCallback != null)
-            {
-                OobeShellPage.OpenMainWindowCallback(typeof(KeyboardManagerPage));
-            }
+            OobeShellPage.OpenMainWindowCallback?.Invoke(typeof(KeyboardManagerPage));
 
             ViewModel.LogOpeningSettingsEvent();
         }
