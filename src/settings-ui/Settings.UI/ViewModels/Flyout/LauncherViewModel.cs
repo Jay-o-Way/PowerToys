@@ -52,10 +52,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             AddFlyoutMenuItem(ModuleType.Workspaces);
 
             updatingSettingsConfig = UpdatingSettings.LoadSettings();
-            if (updatingSettingsConfig == null)
-            {
-                updatingSettingsConfig = new UpdatingSettings();
-            }
+            updatingSettingsConfig ??= new UpdatingSettings();
 
             IsUpdateAvailable = updatingSettingsConfig.State == UpdatingSettings.UpdatingState.ReadyToInstall || updatingSettingsConfig.State == UpdatingSettings.UpdatingState.ReadyToDownload;
         }

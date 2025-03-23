@@ -204,9 +204,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                   : [];
         }
 
-        public ICommand RemapKeyboardCommand => _remapKeyboardCommand ?? (_remapKeyboardCommand = new RelayCommand(OnRemapKeyboard));
+        public ICommand RemapKeyboardCommand => _remapKeyboardCommand ??= new RelayCommand(OnRemapKeyboard);
 
-        public ICommand EditShortcutCommand => _editShortcutCommand ?? (_editShortcutCommand = new RelayCommand(OnEditShortcut));
+        public ICommand EditShortcutCommand => _editShortcutCommand ??= new RelayCommand(OnEditShortcut);
 
         public void OnRemapKeyboard()
         {

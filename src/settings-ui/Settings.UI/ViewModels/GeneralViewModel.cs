@@ -91,10 +91,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
             GeneralSettingsConfig = settingsRepository.SettingsConfig;
             UpdatingSettingsConfig = UpdatingSettings.LoadSettings();
-            if (UpdatingSettingsConfig == null)
-            {
-                UpdatingSettingsConfig = new UpdatingSettings();
-            }
+            UpdatingSettingsConfig ??= new UpdatingSettings();
 
             // set the callback functions value to handle outgoing IPC message.
             SendConfigMSG = ipcMSGCallBackFunc;

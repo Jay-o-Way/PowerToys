@@ -175,10 +175,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (_additionalOptions == null)
-                {
-                    _additionalOptions = settings.AdditionalOptions.Select(x => new PluginAdditionalOptionViewModel(x)).ToList();
-                }
+                _additionalOptions ??= settings.AdditionalOptions.Select(x => new PluginAdditionalOptionViewModel(x)).ToList();
 
                 return _additionalOptions;
             }
