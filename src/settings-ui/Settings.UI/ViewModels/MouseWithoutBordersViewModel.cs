@@ -580,7 +580,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     if (!loadMachineMatrixString.Contains(availableMachineName))
                     {
-                        int availableIndex = loadMachineMatrixString.FindIndex(name => string.IsNullOrEmpty(name));
+                        int availableIndex = loadMachineMatrixString.FindIndex(string.IsNullOrEmpty);
                         if (availableIndex >= 0)
                         {
                             loadMachineMatrixString[availableIndex] = availableMachineName;

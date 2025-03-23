@@ -161,17 +161,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         // store remappings
         public List<KeysDataModel> RemapKeys
         {
-            get
-            {
-                if (_profile != null)
-                {
-                    return _profile.RemapKeys.InProcessRemapKeys.Concat(_profile.RemapKeysToText.InProcessRemapKeys).ToList();
-                }
-                else
-                {
-                    return new List<KeysDataModel>();
-                }
-            }
+            get => _profile != null
+                  ? _profile.RemapKeys.InProcessRemapKeys.Concat(_profile.RemapKeysToText.InProcessRemapKeys).ToList()
+                  : [];
         }
 
         public static List<AppSpecificKeysDataModel> CombineShortcutLists(List<KeysDataModel> globalShortcutList, List<AppSpecificKeysDataModel> appSpecificShortcutList)
@@ -207,17 +199,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public List<AppSpecificKeysDataModel> RemapShortcuts
         {
-            get
-            {
-                if (_profile != null)
-                {
-                    return CombineShortcutLists(_profile.RemapShortcuts.GlobalRemapShortcuts, _profile.RemapShortcuts.AppSpecificRemapShortcuts).Concat(CombineShortcutLists(_profile.RemapShortcutsToText.GlobalRemapShortcuts, _profile.RemapShortcutsToText.AppSpecificRemapShortcuts)).ToList();
-                }
-                else
-                {
-                    return new List<AppSpecificKeysDataModel>();
-                }
-            }
+            get => _profile != null
+                  ? CombineShortcutLists(_profile.RemapShortcuts.GlobalRemapShortcuts, _profile.RemapShortcuts.AppSpecificRemapShortcuts).Concat(CombineShortcutLists(_profile.RemapShortcutsToText.GlobalRemapShortcuts, _profile.RemapShortcutsToText.AppSpecificRemapShortcuts)).ToList()
+                  : [];
         }
 
         public ICommand RemapKeyboardCommand => _remapKeyboardCommand ?? (_remapKeyboardCommand = new RelayCommand(OnRemapKeyboard));

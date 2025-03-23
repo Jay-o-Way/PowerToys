@@ -46,10 +46,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             // Todo: Handle duplicate events either by somehow suppress them or re-read the configuration every time since we will be updating the UI only if something is changed.
             if (ViewModel.LoadProfile())
             {
-                this.DispatcherQueue.TryEnqueue(() =>
-                {
-                    ViewModel.NotifyFileChanged();
-                });
+                this.DispatcherQueue.TryEnqueue(ViewModel.NotifyFileChanged);
             }
         }
 

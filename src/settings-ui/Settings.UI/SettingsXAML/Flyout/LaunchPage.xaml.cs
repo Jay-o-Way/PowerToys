@@ -166,10 +166,7 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.KillRunner();
-            this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
-            {
-                Application.Current.Exit();
-            });
+            this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, Application.Current.Exit);
         }
 
         private void ReportBugBtn_Click(object sender, RoutedEventArgs e)
