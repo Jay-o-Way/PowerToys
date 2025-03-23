@@ -31,10 +31,8 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
         {
             if (OobeShellPage.RunSharedEventCallback != null)
             {
-                using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, OobeShellPage.RunSharedEventCallback()))
-                {
-                    eventHandle.Set();
-                }
+                using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, OobeShellPage.RunSharedEventCallback());
+                eventHandle.Set();
             }
 
             ViewModel.LogRunningModuleEvent();

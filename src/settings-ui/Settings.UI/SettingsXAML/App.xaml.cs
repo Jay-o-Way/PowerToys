@@ -149,10 +149,8 @@ namespace Microsoft.PowerToys.Settings.UI
             var ipcFileName = cmdArgs[3];
             try
             {
-                using (var settings = JsonDocument.Parse(File.ReadAllText(ipcFileName)))
-                {
-                    SetAdditionalSettingsCommandLineCommand.Execute(moduleName, settings, new SettingsUtils());
-                }
+                using var settings = JsonDocument.Parse(File.ReadAllText(ipcFileName));
+                SetAdditionalSettingsCommandLineCommand.Execute(moduleName, settings, new SettingsUtils());
             }
             catch (Exception ex)
             {

@@ -28,10 +28,8 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
         {
             if (OobeShellPage.ColorPickerSharedEventCallback != null)
             {
-                using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, OobeShellPage.ColorPickerSharedEventCallback()))
-                {
-                    eventHandle.Set();
-                }
+                using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, OobeShellPage.ColorPickerSharedEventCallback());
+                eventHandle.Set();
             }
 
             ViewModel.LogRunningModuleEvent();

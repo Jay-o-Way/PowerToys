@@ -55,10 +55,8 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
                             ? Constants.ShowEnvironmentVariablesAdminSharedEvent()
                             : Constants.ShowEnvironmentVariablesSharedEvent();
 
-                        using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName))
-                        {
-                            eventHandle.Set();
-                        }
+                        using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName);
+                        eventHandle.Set();
                     }
 
                     break;
@@ -78,10 +76,8 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
                             ? Constants.ShowHostsAdminSharedEvent()
                             : Constants.ShowHostsSharedEvent();
 
-                        using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName))
-                        {
-                            eventHandle.Set();
-                        }
+                        using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName);
+                        eventHandle.Set();
                     }
 
                     break;

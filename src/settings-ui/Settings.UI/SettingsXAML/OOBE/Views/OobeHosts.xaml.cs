@@ -42,10 +42,8 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
                 ? Constants.ShowHostsAdminSharedEvent()
                 : Constants.ShowHostsSharedEvent();
 
-            using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName))
-            {
-                eventHandle.Set();
-            }
+            using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName);
+            eventHandle.Set();
         }
 
         private void Launch_Settings_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)

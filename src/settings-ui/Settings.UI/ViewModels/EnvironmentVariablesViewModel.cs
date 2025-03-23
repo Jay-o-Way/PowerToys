@@ -110,10 +110,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 ? Constants.ShowEnvironmentVariablesAdminSharedEvent()
                 : Constants.ShowEnvironmentVariablesSharedEvent();
 
-            using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName))
-            {
-                eventHandle.Set();
-            }
+            using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName);
+            eventHandle.Set();
         }
 
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = null)

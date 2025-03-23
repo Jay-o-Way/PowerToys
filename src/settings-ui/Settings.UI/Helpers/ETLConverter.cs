@@ -76,26 +76,24 @@ namespace Microsoft.PowerToys.Settings.UI.Helpers
                 CreateNoWindow = true,
             };
 
-            using (var process = Process.Start(startInfo))
+            using var process = Process.Start(startInfo);
+            if (process == null)
             {
-                if (process == null)
-                {
-                    Logger.LogError("Failed to start tracerpt process.");
-                }
+                Logger.LogError("Failed to start tracerpt process.");
+            }
 
-                var processExited = process.WaitForExit(TracerptConversionTimeout);
+            var processExited = process.WaitForExit(TracerptConversionTimeout);
 
-                if (!processExited)
-                {
-                    process.Kill();
-                    Logger.LogError("ETL conversion process timed out.");
-                }
+            if (!processExited)
+            {
+                process.Kill();
+                Logger.LogError("ETL conversion process timed out.");
+            }
 
-                var exitCode = process.ExitCode;
-                if (exitCode != 0)
-                {
-                    Logger.LogError($"ETL conversion failed with exit code {exitCode}.");
-                }
+            var exitCode = process.ExitCode;
+            if (exitCode != 0)
+            {
+                Logger.LogError($"ETL conversion failed with exit code {exitCode}.");
             }
         }
     }

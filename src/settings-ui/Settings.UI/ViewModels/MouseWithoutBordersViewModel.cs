@@ -339,14 +339,12 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             using (await _ipcSemaphore.EnterAsync())
             {
-                using (var syncHelper = await GetSettingsSyncHelperAsync())
+                using var syncHelper = await GetSettingsSyncHelperAsync();
+                syncHelper?.Endpoint?.Shutdown();
+                var task = syncHelper?.Stream.FlushAsync();
+                if (task != null)
                 {
-                    syncHelper?.Endpoint?.Shutdown();
-                    var task = syncHelper?.Stream.FlushAsync();
-                    if (task != null)
-                    {
-                        await task;
-                    }
+                    await task;
                 }
             }
         }
@@ -355,14 +353,12 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             using (await _ipcSemaphore.EnterAsync())
             {
-                using (var syncHelper = await GetSettingsSyncHelperAsync())
+                using var syncHelper = await GetSettingsSyncHelperAsync();
+                syncHelper?.Endpoint?.Reconnect();
+                var task = syncHelper?.Stream.FlushAsync();
+                if (task != null)
                 {
-                    syncHelper?.Endpoint?.Reconnect();
-                    var task = syncHelper?.Stream.FlushAsync();
-                    if (task != null)
-                    {
-                        await task;
-                    }
+                    await task;
                 }
             }
         }
@@ -371,14 +367,12 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             using (await _ipcSemaphore.EnterAsync())
             {
-                using (var syncHelper = await GetSettingsSyncHelperAsync())
+                using var syncHelper = await GetSettingsSyncHelperAsync();
+                syncHelper?.Endpoint?.GenerateNewKey();
+                var task = syncHelper?.Stream.FlushAsync();
+                if (task != null)
                 {
-                    syncHelper?.Endpoint?.GenerateNewKey();
-                    var task = syncHelper?.Stream.FlushAsync();
-                    if (task != null)
-                    {
-                        await task;
-                    }
+                    await task;
                 }
             }
         }
@@ -387,14 +381,12 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             using (await _ipcSemaphore.EnterAsync())
             {
-                using (var syncHelper = await GetSettingsSyncHelperAsync())
+                using var syncHelper = await GetSettingsSyncHelperAsync();
+                syncHelper?.Endpoint?.ConnectToMachine(pcName, securityKey);
+                var task = syncHelper?.Stream.FlushAsync();
+                if (task != null)
                 {
-                    syncHelper?.Endpoint?.ConnectToMachine(pcName, securityKey);
-                    var task = syncHelper?.Stream.FlushAsync();
-                    if (task != null)
-                    {
-                        await task;
-                    }
+                    await task;
                 }
             }
         }
@@ -403,11 +395,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             using (await _ipcSemaphore.EnterAsync())
             {
-                using (var syncHelper = await GetSettingsSyncHelperAsync())
-                {
-                    var task = syncHelper?.Endpoint?.RequestMachineSocketStateAsync();
-                    return task != null ? await task : null;
-                }
+                using var syncHelper = await GetSettingsSyncHelperAsync();
+                var task = syncHelper?.Endpoint?.RequestMachineSocketStateAsync();
+                return task != null ? await task : null;
             }
         }
 

@@ -162,10 +162,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 ? Constants.ShowHostsAdminSharedEvent()
                 : Constants.ShowHostsSharedEvent();
 
-            using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName))
-            {
-                eventHandle.Set();
-            }
+            using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, eventName);
+            eventHandle.Set();
         }
 
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
