@@ -641,7 +641,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             {
                 if (_plugins == null)
                 {
-                    _plugins = new ObservableCollection<PowerLauncherPluginViewModel>(settings.Plugins.Select(x => new PowerLauncherPluginViewModel(x, isDark)));
+                    _plugins = [.. settings.Plugins.Select(x => new PowerLauncherPluginViewModel(x, isDark))];
                     foreach (var plugin in Plugins)
                     {
                         plugin.PropertyChanged += OnPluginInfoChange;
@@ -677,7 +677,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             if (!string.IsNullOrWhiteSpace(SearchText))
             {
                 var plugins = settings.Plugins.Where(p => p.Name.StartsWith(SearchText, StringComparison.OrdinalIgnoreCase) || p.Name.IndexOf($" {SearchText}", StringComparison.OrdinalIgnoreCase) > 0);
-                _plugins = new ObservableCollection<PowerLauncherPluginViewModel>(plugins.Select(x => new PowerLauncherPluginViewModel(x, isDark)));
+                _plugins = [.. plugins.Select(x => new PowerLauncherPluginViewModel(x, isDark))];
                 foreach (var plugin in _plugins)
                 {
                     plugin.PropertyChanged += OnPluginInfoChange;
