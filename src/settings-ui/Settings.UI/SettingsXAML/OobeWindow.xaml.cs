@@ -39,7 +39,7 @@ namespace Microsoft.PowerToys.Settings.UI
             App.ThemeService.ThemeChanged += OnThemeChanged;
             App.ThemeService.ApplyTheme();
 
-            this.InitializeComponent();
+            InitializeComponent();
 
             // Set window icon
             _hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
@@ -76,7 +76,7 @@ namespace Microsoft.PowerToys.Settings.UI
                 }
             };
 
-            this.SizeChanged += OobeWindow_SizeChanged;
+            SizeChanged += OobeWindow_SizeChanged;
 
             var loader = Helpers.ResourceLoaderInstance.ResourceLoader;
             Title = loader.GetString("OobeWindow_Title");

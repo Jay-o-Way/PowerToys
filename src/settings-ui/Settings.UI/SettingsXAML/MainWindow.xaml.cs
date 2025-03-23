@@ -46,7 +46,7 @@ namespace Microsoft.PowerToys.Settings.UI
                 placement.ShowCmd = NativeMethods.SW_HIDE;
 
                 // Restore the last known placement on the first activation
-                this.Activated += Window_Activated;
+                Activated += Window_Activated;
             }
 
             NativeMethods.SetWindowPlacement(hWnd, ref placement);
@@ -92,7 +92,7 @@ namespace Microsoft.PowerToys.Settings.UI
                 {
                     ModuleHelper.SetIsModuleEnabled(generalSettingsConfig, moduleType, isEnabled);
                     var outgoing = new OutGoingGeneralSettings(generalSettingsConfig);
-                    this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
+                    DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
                     {
                         ShellPage.SendDefaultIPCMessage(outgoing.ToString());
                         ShellPage.ShellHandler?.SignalGeneralDataUpdate();
@@ -131,7 +131,7 @@ namespace Microsoft.PowerToys.Settings.UI
             // open flyout
             ShellPage.SetOpenFlyoutCallback((POINT? p) =>
             {
-                this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
+                DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
                 {
                     if (App.GetFlyoutWindow() == null)
                     {
@@ -151,7 +151,7 @@ namespace Microsoft.PowerToys.Settings.UI
             // disable flyout hiding
             ShellPage.SetDisableFlyoutHidingCallback(() =>
             {
-                this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
+                DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
                 {
                     if (App.GetFlyoutWindow() == null)
                     {
@@ -162,7 +162,7 @@ namespace Microsoft.PowerToys.Settings.UI
                 });
             });
 
-            this.InitializeComponent();
+            InitializeComponent();
 
             // receive IPC Message
             App.IPCMessageReceivedCallback = (string msg) =>
@@ -225,7 +225,7 @@ namespace Microsoft.PowerToys.Settings.UI
         {
             if (args.WindowActivationState != WindowActivationState.Deactivated)
             {
-                this.Activated -= Window_Activated;
+                Activated -= Window_Activated;
                 var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
                 var placement = WindowHelper.DeserializePlacementOrDefault(hWnd);
                 NativeMethods.SetWindowPlacement(hWnd, ref placement);

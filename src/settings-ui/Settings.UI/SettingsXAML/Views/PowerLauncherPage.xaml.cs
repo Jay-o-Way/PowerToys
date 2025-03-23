@@ -60,10 +60,10 @@ namespace Microsoft.PowerToys.Settings.UI.Views
 
                 if (powerLauncherSettings != null && !ViewModel.IsUpToDate(powerLauncherSettings))
                 {
-                    this.DispatcherQueue.TryEnqueue(() =>
+                    DispatcherQueue.TryEnqueue(() =>
                     {
                         DataContext = ViewModel = new PowerLauncherViewModel(powerLauncherSettings, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage, App.IsDarkTheme);
-                        this.Bindings.Update();
+                        Bindings.Update();
                     });
                 }
             });

@@ -13,7 +13,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     {
         public SettingsPageControl()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             PrimaryLinks = new ObservableCollection<PageLink>();
             SecondaryLinks = new ObservableCollection<PageLink>();
         }

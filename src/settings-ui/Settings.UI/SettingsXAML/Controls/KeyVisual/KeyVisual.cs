@@ -46,8 +46,8 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         public KeyVisual()
         {
-            this.DefaultStyleKey = typeof(KeyVisual);
-            this.Style = GetStyleSize("TextKeyVisualStyle");
+            DefaultStyleKey = typeof(KeyVisual);
+            Style = GetStyleSize("TextKeyVisualStyle");
         }
 
         protected override void OnApplyTemplate()

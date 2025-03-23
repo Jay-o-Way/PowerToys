@@ -224,7 +224,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public void OnClosing()
         {
-            NavigationViewItem selectedItem = this.navigationView.SelectedItem as NavigationViewItem;
+            NavigationViewItem selectedItem = navigationView.SelectedItem as NavigationViewItem;
             if (selectedItem != null)
             {
                 Modules[(int)(PowerToysModules)Enum.Parse(typeof(PowerToysModules), (string)selectedItem.Tag, true)].LogClosingModuleEvent();

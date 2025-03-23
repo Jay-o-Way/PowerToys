@@ -78,7 +78,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             _highlightFadeDurationMs = MouseHighlighterSettingsConfig.Properties.HighlightFadeDurationMs.Value;
             _highlighterAutoActivate = MouseHighlighterSettingsConfig.Properties.AutoActivate.Value;
 
-            this.InitializeMouseJumpSettings(mouseJumpSettingsRepository);
+            InitializeMouseJumpSettings(mouseJumpSettingsRepository);
 
             ArgumentNullException.ThrowIfNull(mousePointerCrosshairsSettingsRepository);
 
@@ -133,7 +133,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 _isMouseHighlighterEnabled = GeneralSettingsConfig.Enabled.MouseHighlighter;
             }
 
-            this.InitializeMouseJumpEnabledValues();
+            InitializeMouseJumpEnabledValues();
 
             _mousePointerCrosshairsEnabledGpoRuleConfiguration = GPOWrapper.GetConfiguredMousePointerCrosshairsEnabledValue();
             if (_mousePointerCrosshairsEnabledGpoRuleConfiguration == GpoRuleConfigured.Disabled || _mousePointerCrosshairsEnabledGpoRuleConfiguration == GpoRuleConfigured.Enabled)

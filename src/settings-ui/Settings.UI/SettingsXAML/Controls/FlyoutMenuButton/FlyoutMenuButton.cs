@@ -29,7 +29,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         public FlyoutMenuButton()
         {
-            this.DefaultStyleKey = typeof(FlyoutMenuButton);
+            DefaultStyleKey = typeof(FlyoutMenuButton);
         }
 
         protected override void OnApplyTemplate()

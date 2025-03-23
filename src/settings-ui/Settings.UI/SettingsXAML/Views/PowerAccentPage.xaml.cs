@@ -20,8 +20,8 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             var settingsUtils = new SettingsUtils();
             ViewModel = new PowerAccentViewModel(settingsUtils, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage);
             DataContext = ViewModel;
-            this.InitializeComponent();
-            this.InitializeControlsStates();
+            InitializeComponent();
+            InitializeControlsStates();
         }
 
         public void RefreshEnabledState()
@@ -38,29 +38,29 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             if (ViewModel.SelectedLanguageOptions.Length == 0)
             {
-                this.QuickAccent_SelectedLanguage_All.IsChecked = false;
-                this.QuickAccent_SelectedLanguage_All.IsThreeState = false;
+                QuickAccent_SelectedLanguage_All.IsChecked = false;
+                QuickAccent_SelectedLanguage_All.IsThreeState = false;
             }
             else if (ViewModel.AllSelected)
             {
-                this.QuickAccent_SelectedLanguage_All.IsChecked = true;
-                this.QuickAccent_SelectedLanguage_All.IsThreeState = false;
+                QuickAccent_SelectedLanguage_All.IsChecked = true;
+                QuickAccent_SelectedLanguage_All.IsThreeState = false;
             }
             else
             {
-                this.QuickAccent_SelectedLanguage_All.IsThreeState = true;
-                this.QuickAccent_SelectedLanguage_All.IsChecked = null;
+                QuickAccent_SelectedLanguage_All.IsThreeState = true;
+                QuickAccent_SelectedLanguage_All.IsChecked = null;
             }
         }
 
         private void QuickAccent_SelectedLanguage_SelectAll(object sender, RoutedEventArgs e)
         {
-            this.QuickAccent_Language_Select.SelectAllSafe();
+            QuickAccent_Language_Select.SelectAllSafe();
         }
 
         private void QuickAccent_SelectedLanguage_UnselectAll(object sender, RoutedEventArgs e)
         {
-            this.QuickAccent_Language_Select.DeselectAll();
+            QuickAccent_Language_Select.DeselectAll();
         }
 
         private bool loadingLanguageListDontTriggerSelectionChanged;
@@ -86,7 +86,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             loadingLanguageListDontTriggerSelectionChanged = true;
             foreach (var languageOption in ViewModel.SelectedLanguageOptions)
             {
-                this.QuickAccent_Language_Select.SelectedItems.Add(languageOption);
+                QuickAccent_Language_Select.SelectedItems.Add(languageOption);
             }
 
             loadingLanguageListDontTriggerSelectionChanged = false;

@@ -11,7 +11,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     {
         public OOBEPageControl()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public string Title

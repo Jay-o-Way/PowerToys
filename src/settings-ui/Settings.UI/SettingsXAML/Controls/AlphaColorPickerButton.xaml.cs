@@ -33,7 +33,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         public AlphaColorPickerButton()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             IsEnabledChanged -= AlphaColorPickerButton_IsEnabledChanged;
             SetEnabledState();
             IsEnabledChanged += AlphaColorPickerButton_IsEnabledChanged;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         private void SetEnabledState()
         {
-            ColorPreviewBorder.Opacity = this.IsEnabled ? 1 : 0.2;
+            ColorPreviewBorder.Opacity = IsEnabled ? 1 : 0.2;
         }
     }
 }

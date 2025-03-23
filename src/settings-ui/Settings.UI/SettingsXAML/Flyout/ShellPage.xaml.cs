@@ -14,7 +14,7 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
     {
         public ShellPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         internal void SwitchToLaunchPage()

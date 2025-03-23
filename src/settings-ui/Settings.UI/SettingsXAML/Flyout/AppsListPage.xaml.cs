@@ -22,7 +22,7 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
 
         public AppsListPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             var settingsUtils = new SettingsUtils();
             ViewModel = new AllAppsViewModel(SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), Views.ShellPage.SendDefaultIPCMessage);

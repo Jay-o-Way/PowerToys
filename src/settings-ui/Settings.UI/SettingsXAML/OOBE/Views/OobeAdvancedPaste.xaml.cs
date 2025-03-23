@@ -17,7 +17,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeAdvancedPaste()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.AdvancedPaste]);
             DataContext = ViewModel;
         }

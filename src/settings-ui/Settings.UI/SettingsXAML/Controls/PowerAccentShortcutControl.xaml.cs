@@ -29,7 +29,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         public PowerAccentShortcutControl()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

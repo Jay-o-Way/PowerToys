@@ -11,11 +11,11 @@ public partial class ImageResizerDimensionsNumberBox : NumberBox
 {
     public ImageResizerDimensionsNumberBox()
     {
-        this.Loaded += (_, _) => UpdateDisplayText();
+        Loaded += (_, _) => UpdateDisplayText();
 
-        this.ValueChanged += (_, _) => UpdateDisplayText();
+        ValueChanged += (_, _) => UpdateDisplayText();
 
-        this.GotFocus += (s, e) =>
+        GotFocus += (s, e) =>
         {
             // Show "0" in the UI when focused on the empty value. This ensures that the spinbutton
             // controls are usable.
@@ -25,7 +25,7 @@ public partial class ImageResizerDimensionsNumberBox : NumberBox
             }
         };
 
-        this.LostFocus += (_, _) => UpdateDisplayText();
+        LostFocus += (_, _) => UpdateDisplayText();
     }
 
     private void UpdateDisplayText()

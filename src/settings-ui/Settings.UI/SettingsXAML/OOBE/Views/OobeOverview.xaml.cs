@@ -33,7 +33,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
                     DataDiagnosticsSettings.SetEnabledValue(_enableDataDiagnostics);
 
-                    this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
+                    DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
                     {
                         ShellPage.ShellHandler?.SignalGeneralDataUpdate();
                     });
@@ -52,7 +52,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeOverview()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             _enableDataDiagnostics = DataDiagnosticsSettings.GetEnabledValue();
 

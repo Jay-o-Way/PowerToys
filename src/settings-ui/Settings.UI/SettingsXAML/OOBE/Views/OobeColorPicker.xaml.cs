@@ -19,7 +19,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeColorPicker()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.ColorPicker]);
             DataContext = ViewModel;
         }

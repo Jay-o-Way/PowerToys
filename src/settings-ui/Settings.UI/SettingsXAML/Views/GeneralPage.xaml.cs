@@ -41,7 +41,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
 
             Action stateUpdatingAction = () =>
             {
-                this.DispatcherQueue.TryEnqueue(() =>
+                DispatcherQueue.TryEnqueue(() =>
                 {
                     ViewModel.RefreshUpdatingState();
                 });
@@ -49,7 +49,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
 
             Action hideBackupAndRestoreMessageArea = () =>
             {
-                this.DispatcherQueue.TryEnqueue(async () =>
+                DispatcherQueue.TryEnqueue(async () =>
                 {
                     const int messageShowTimeIs = 10000;
 
@@ -122,7 +122,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
 
                 var settingsBackupAndRestoreUtils = SettingsBackupAndRestoreUtils.Instance;
                 var results = settingsBackupAndRestoreUtils.DryRunBackup();
-                this.DispatcherQueue.TryEnqueue(() =>
+                DispatcherQueue.TryEnqueue(() =>
                 {
                     ViewModel.NotifyAllBackupAndRestoreProperties();
                 });

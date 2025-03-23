@@ -15,7 +15,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     {
         public IsEnabledTextBlock()
         {
-            this.Style = (Style)App.Current.Resources["DefaultIsEnabledTextBlockStyle"];
+            Style = (Style)App.Current.Resources["DefaultIsEnabledTextBlockStyle"];
         }
 
         protected override void OnApplyTemplate()

@@ -18,7 +18,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     {
         public FancyZonesPreviewControl()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             try
             {
@@ -125,10 +125,10 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             }
             else
             {
-                highlightBrush = (SolidColorBrush)this.Resources["DefaultAccentBrush"];
-                inActiveBrush = (SolidColorBrush)this.Resources["SolidBackgroundBrush"];
-                borderBrush = (SolidColorBrush)this.Resources["DefaultBorderBrush"];
-                numberBrush = (SolidColorBrush)this.Resources["SolidZoneNumberBrush"];
+                highlightBrush = (SolidColorBrush)Resources["DefaultAccentBrush"];
+                inActiveBrush = (SolidColorBrush)Resources["SolidBackgroundBrush"];
+                borderBrush = (SolidColorBrush)Resources["DefaultBorderBrush"];
+                numberBrush = (SolidColorBrush)Resources["SolidZoneNumberBrush"];
             }
 
             highlightBrush.Opacity = HighlightOpacity / 100;

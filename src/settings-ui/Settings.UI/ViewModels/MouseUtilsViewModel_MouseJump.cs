@@ -36,8 +36,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         private void InitializeMouseJumpSettings(ISettingsRepository<MouseJumpSettings> mouseJumpSettingsRepository)
         {
             ArgumentNullException.ThrowIfNull(mouseJumpSettingsRepository);
-            this.MouseJumpSettingsConfig = mouseJumpSettingsRepository.SettingsConfig;
-            this.MouseJumpSettingsConfig.Properties.ThumbnailSize.PropertyChanged += this.MouseJumpThumbnailSizePropertyChanged;
+            MouseJumpSettingsConfig = mouseJumpSettingsRepository.SettingsConfig;
+            MouseJumpSettingsConfig.Properties.ThumbnailSize.PropertyChanged += MouseJumpThumbnailSizePropertyChanged;
         }
 
         private void InitializeMouseJumpEnabledValues()
@@ -168,7 +168,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 */
                 var canvasSize = new SizeInfo(desktopSize.Width, 283).Clamp(desktopSize);
 
-                var previewType = Enum.TryParse<PreviewType>(this.MouseJumpPreviewType, true, out var previewTypeResult)
+                var previewType = Enum.TryParse<PreviewType>(MouseJumpPreviewType, true, out var previewTypeResult)
                     ? previewTypeResult
                     : PreviewType.Bezelled;
                 var previewStyle = previewType switch
@@ -181,36 +181,36 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                             marginStyle: new(0),
                             borderStyle: new(
                                 color: ConfigHelper.DeserializeFromConfigColorString(
-                                    this.MouseJumpBorderColor),
-                                all: this.MouseJumpBorderThickness,
-                                depth: this.MouseJumpBorder3dDepth
+                                    MouseJumpBorderColor),
+                                all: MouseJumpBorderThickness,
+                                depth: MouseJumpBorder3dDepth
                             ),
                             paddingStyle: new(
-                                all: this.MouseJumpBorderPadding
+                                all: MouseJumpBorderPadding
                             ),
                             backgroundStyle: new(
                                 color1: ConfigHelper.DeserializeFromConfigColorString(
-                                    this.MouseJumpBackgroundColor1),
+                                    MouseJumpBackgroundColor1),
                                 color2: ConfigHelper.DeserializeFromConfigColorString(
-                                    this.MouseJumpBackgroundColor2)
+                                    MouseJumpBackgroundColor2)
                             )
                         ),
                         screenStyle: new(
                             marginStyle: new(
-                                all: this.MouseJumpScreenMargin
+                                all: MouseJumpScreenMargin
                             ),
                             borderStyle: new(
                                 color: ConfigHelper.DeserializeFromConfigColorString(
-                                    this.MouseJumpBezelColor),
-                                all: this.MouseJumpBezelThickness,
-                                depth: this.MouseJumpBezel3dDepth
+                                    MouseJumpBezelColor),
+                                all: MouseJumpBezelThickness,
+                                depth: MouseJumpBezel3dDepth
                             ),
                             paddingStyle: new(0),
                             backgroundStyle: new(
                                 color1: ConfigHelper.DeserializeFromConfigColorString(
-                                    this.MouseJumpScreenColor1),
+                                    MouseJumpScreenColor1),
                                 color2: ConfigHelper.DeserializeFromConfigColorString(
-                                    this.MouseJumpScreenColor2)
+                                    MouseJumpScreenColor2)
                             )
                         )),
                     _ => throw new InvalidOperationException(
@@ -256,7 +256,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.PreviewType = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -277,7 +277,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BackgroundColor1 = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -298,7 +298,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BackgroundColor2 = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -316,7 +316,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BorderThickness = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -337,7 +337,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BorderColor = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -355,7 +355,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.Border3dDepth = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -373,7 +373,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BorderPadding = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -391,7 +391,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BezelThickness = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -412,7 +412,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.BezelColor = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -430,7 +430,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.Bezel3dDepth = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -448,7 +448,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.ScreenMargin = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -469,7 +469,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.ScreenColor1 = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }
@@ -490,7 +490,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     MouseJumpSettingsConfig.Properties.ScreenColor2 = value;
                     NotifyMouseJumpPropertyChanged();
-                    NotifyMouseJumpPropertyChanged(nameof(this.MouseJumpPreviewImage));
+                    NotifyMouseJumpPropertyChanged(nameof(MouseJumpPreviewImage));
                 }
             }
         }

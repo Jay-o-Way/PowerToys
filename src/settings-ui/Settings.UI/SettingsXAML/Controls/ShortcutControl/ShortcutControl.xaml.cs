@@ -108,15 +108,15 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             InitializeComponent();
             internalSettings = new HotkeySettings();
 
-            this.Unloaded += ShortcutControl_Unloaded;
-            this.Loaded += ShortcutControl_Loaded;
+            Unloaded += ShortcutControl_Unloaded;
+            Loaded += ShortcutControl_Loaded;
 
             var resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
 
             // We create the Dialog in C# because doing it in XAML is giving WinUI/XAML Island bugs when using dark theme.
             shortcutDialog = new ContentDialog
             {
-                XamlRoot = this.XamlRoot,
+                XamlRoot = XamlRoot,
                 Title = resourceLoader.GetString("Activation_Shortcut_Title"),
                 Content = c,
                 PrimaryButtonText = resourceLoader.GetString("Activation_Shortcut_Save"),
@@ -404,8 +404,8 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             // Additional key must be present, as this is a valid, previously used shortcut shown at dialog open. Check for presence of non-modifier-key is not necessary therefore
             c.IsWarningAltGr = c.Keys.Contains("Ctrl") && c.Keys.Contains("Alt") && !c.Keys.Contains(92);
 
-            shortcutDialog.XamlRoot = this.XamlRoot;
-            shortcutDialog.RequestedTheme = this.ActualTheme;
+            shortcutDialog.XamlRoot = XamlRoot;
+            shortcutDialog.RequestedTheme = ActualTheme;
             await shortcutDialog.ShowAsync();
         }
 

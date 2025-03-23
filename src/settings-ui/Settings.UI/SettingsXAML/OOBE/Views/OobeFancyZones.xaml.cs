@@ -17,7 +17,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeFancyZones()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.FancyZones]);
             DataContext = ViewModel;
         }

@@ -25,7 +25,7 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
 
         public LaunchPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             var settingsUtils = new SettingsUtils();
             ViewModel = new LauncherViewModel(SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), Views.ShellPage.SendDefaultIPCMessage);
             DataContext = ViewModel;
@@ -166,7 +166,7 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.KillRunner();
-            this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, Application.Current.Exit);
+            DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, Application.Current.Exit);
         }
 
         private void ReportBugBtn_Click(object sender, RoutedEventArgs e)

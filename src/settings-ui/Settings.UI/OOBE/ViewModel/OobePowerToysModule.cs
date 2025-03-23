@@ -36,12 +36,12 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.ViewModel
 
         public void LogOpeningSettingsEvent()
         {
-            PowerToysTelemetry.Log.WriteEvent(new OobeSettingsEvent() { ModuleName = this.ModuleName });
+            PowerToysTelemetry.Log.WriteEvent(new OobeSettingsEvent() { ModuleName = ModuleName });
         }
 
         public void LogRunningModuleEvent()
         {
-            PowerToysTelemetry.Log.WriteEvent(new OobeModuleRunEvent() { ModuleName = this.ModuleName });
+            PowerToysTelemetry.Log.WriteEvent(new OobeModuleRunEvent() { ModuleName = ModuleName });
         }
 
         public void LogOpeningModuleEvent()
@@ -52,7 +52,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.ViewModel
         public void LogClosingModuleEvent()
         {
             timeOpened.Stop();
-            PowerToysTelemetry.Log.WriteEvent(new OobeSectionEvent() { Section = this.ModuleName, TimeOpenedMs = timeOpened.ElapsedMilliseconds });
+            PowerToysTelemetry.Log.WriteEvent(new OobeSectionEvent() { Section = ModuleName, TimeOpenedMs = timeOpened.ElapsedMilliseconds });
         }
     }
 }

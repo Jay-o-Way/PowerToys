@@ -16,7 +16,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeMouseUtils()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.MouseUtils]);
             DataContext = ViewModel;
         }

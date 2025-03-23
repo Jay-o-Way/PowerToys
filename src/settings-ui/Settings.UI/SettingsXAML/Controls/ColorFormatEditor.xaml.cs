@@ -22,7 +22,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     {
         public ColorFormatEditor()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             LoadParameters();
         }
 

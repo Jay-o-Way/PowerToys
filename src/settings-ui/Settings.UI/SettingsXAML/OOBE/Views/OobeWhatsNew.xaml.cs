@@ -38,7 +38,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
         /// </summary>
         public OobeWhatsNew()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.WhatsNew]);
             DataContext = ViewModel;
         }
@@ -185,7 +185,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
         {
             if (Uri.TryCreate(e.Link, UriKind.Absolute, out Uri link))
             {
-                this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
+                DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
                 {
                     Process.Start(new ProcessStartInfo(link.ToString()) { UseShellExecute = true });
                 });
@@ -231,7 +231,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
             DataDiagnosticsSettings.SetUserActionValue(true);
 
-            this.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
+            DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, () =>
             {
                 ShellPage.ShellHandler?.SignalGeneralDataUpdate();
             });

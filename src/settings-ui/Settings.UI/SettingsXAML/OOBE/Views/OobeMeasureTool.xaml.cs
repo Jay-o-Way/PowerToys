@@ -20,7 +20,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeMeasureTool()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.MeasureTool]);
             DataContext = ViewModel;
         }

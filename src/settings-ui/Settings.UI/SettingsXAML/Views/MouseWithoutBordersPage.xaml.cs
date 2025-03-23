@@ -53,7 +53,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             // Note: FileSystemWatcher raise notification multiple times for single update operation.
             // Todo: Handle duplicate events either by somehow suppress them or re-read the configuration every time since we will be updating the UI only if something is changed.
-            this.DispatcherQueue.TryEnqueue(() =>
+            DispatcherQueue.TryEnqueue(() =>
             {
                 if (ViewModel.LoadUpdatedSettings())
                 {

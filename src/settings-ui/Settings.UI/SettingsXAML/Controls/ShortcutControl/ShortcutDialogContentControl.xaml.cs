@@ -13,7 +13,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
     {
         public ShortcutDialogContentControl()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public List<object> Keys

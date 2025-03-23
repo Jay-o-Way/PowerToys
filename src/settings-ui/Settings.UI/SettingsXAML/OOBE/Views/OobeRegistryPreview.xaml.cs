@@ -20,7 +20,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeRegistryPreview()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.RegistryPreview]);
             DataContext = ViewModel;
         }

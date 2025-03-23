@@ -27,7 +27,7 @@ namespace Microsoft.PowerToys.Settings.UI
 
         public FlyoutWindow(POINT? initialPosition)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             // Remove the caption style from the window style. Windows App SDK 1.6 added it, which made the title bar and borders appear for the Flyout. This code removes it.
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
@@ -35,7 +35,7 @@ namespace Microsoft.PowerToys.Settings.UI
             windowStyle &= ~NativeMethods.WS_CAPTION;
             _ = NativeMethods.SetWindowLong(hwnd, NativeMethods.GWL_STYLE, windowStyle);
 
-            this.Activated += FlyoutWindow_Activated;
+            Activated += FlyoutWindow_Activated;
             FlyoutAppearPosition = initialPosition;
             ViewModel = new FlyoutViewModel();
         }

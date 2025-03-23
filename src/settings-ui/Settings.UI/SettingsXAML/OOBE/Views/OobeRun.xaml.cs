@@ -22,7 +22,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeRun()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.Run]);
             DataContext = ViewModel;
         }

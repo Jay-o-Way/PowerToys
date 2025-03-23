@@ -17,7 +17,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
         public CheckBoxWithDescriptionControl()
         {
             _checkBoxSubTextControl = (CheckBoxWithDescriptionControl)this;
-            this.Loaded += CheckBoxSubTextControl_Loaded;
+            Loaded += CheckBoxSubTextControl_Loaded;
         }
 
         protected override void OnApplyTemplate()

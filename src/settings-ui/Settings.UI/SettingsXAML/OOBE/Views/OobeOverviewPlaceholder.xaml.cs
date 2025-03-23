@@ -20,7 +20,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public OobeOverviewPlaceholder()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = new OobePowerToysModule(OobeShellPage.OobeShellHandler.Modules[(int)PowerToysModules.Overview]);
             DataContext = ViewModel;
         }
@@ -38,11 +38,11 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
             if (isExperiment)
             {
-                this.Frame.Navigate(typeof(OobeOverviewAlternate));
+                Frame.Navigate(typeof(OobeOverviewAlternate));
             }
             else
             {
-                this.Frame.Navigate(typeof(OobeOverview));
+                Frame.Navigate(typeof(OobeOverview));
             }
         }
 
