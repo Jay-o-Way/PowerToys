@@ -35,10 +35,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
             var executablePath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "..", @"PowerToys.ShortcutGuide.exe");
             var id = System.Environment.ProcessId.ToString(CultureInfo.InvariantCulture);
             var p = Process.Start(executablePath, id);
-            if (p != null)
-            {
-                p.Close();
-            }
+            p?.Close();
 
             ViewModel.LogRunningModuleEvent();
         }

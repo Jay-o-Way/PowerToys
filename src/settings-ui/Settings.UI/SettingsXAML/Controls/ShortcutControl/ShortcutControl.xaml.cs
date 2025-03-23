@@ -481,10 +481,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             {
                 if (disposing)
                 {
-                    if (hook != null)
-                    {
-                        hook.Dispose();
-                    }
+                    hook?.Dispose();
 
                     hook = null;
                 }

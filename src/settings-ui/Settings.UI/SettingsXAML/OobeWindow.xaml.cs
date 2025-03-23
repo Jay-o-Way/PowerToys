@@ -81,10 +81,7 @@ namespace Microsoft.PowerToys.Settings.UI
             var loader = ResourceLoaderInstance.ResourceLoader;
             Title = loader.GetString("OobeWindow_Title");
 
-            if (shellPage != null)
-            {
-                shellPage.NavigateToModule(this.initialModule);
-            }
+            shellPage?.NavigateToModule(this.initialModule);
 
             OobeShellPage.SetRunSharedEventCallback(() =>
             {
@@ -104,10 +101,7 @@ namespace Microsoft.PowerToys.Settings.UI
 
         public void SetAppWindow(PowerToysModules module)
         {
-            if (shellPage != null)
-            {
-                shellPage.NavigateToModule(module);
-            }
+            shellPage?.NavigateToModule(module);
         }
 
         private void OobeWindow_SizeChanged(object sender, WindowSizeChangedEventArgs args)
@@ -132,10 +126,7 @@ namespace Microsoft.PowerToys.Settings.UI
             App.ClearOobeWindow();
 
             var mainWindow = App.GetSettingsWindow();
-            if (mainWindow != null)
-            {
-                mainWindow.CloseHiddenWindow();
-            }
+            mainWindow?.CloseHiddenWindow();
 
             App.ThemeService.ThemeChanged -= OnThemeChanged;
         }

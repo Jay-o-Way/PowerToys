@@ -282,10 +282,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         public void SignalGeneralDataUpdate()
         {
             IRefreshablePage currentPage = shellFrame?.Content as IRefreshablePage;
-            if (currentPage != null)
-            {
-                currentPage.RefreshEnabledState();
-            }
+            currentPage?.RefreshEnabledState();
         }
 
         private void OobeButton_Click(object sender, RoutedEventArgs e)
