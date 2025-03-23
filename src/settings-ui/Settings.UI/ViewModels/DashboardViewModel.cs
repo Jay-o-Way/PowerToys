@@ -603,7 +603,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 return;
             }
 
-            if (!(button.Tag is ModuleType))
+            if (button.Tag is not ModuleType)
             {
                 return;
             }
