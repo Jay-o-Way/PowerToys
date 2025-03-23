@@ -128,7 +128,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             Views.ShellPage.UpdateGeneralSettingsCallback(dashboardListItem.Tag, dashboardListItem.IsEnabled);
 
-            if (dashboardListItem.Tag == ModuleType.NewPlus && dashboardListItem.IsEnabled == true)
+            if (dashboardListItem.Tag == ModuleType.NewPlus && dashboardListItem.IsEnabled)
             {
                 var settingsUtils = new SettingsUtils();
                 var settings = NewPlusViewModel.LoadSettings(settingsUtils);

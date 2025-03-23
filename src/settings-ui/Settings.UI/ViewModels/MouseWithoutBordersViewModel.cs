@@ -668,7 +668,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                             NotifyPropertyChanged();
 
                             // Disable service mode if we're not elevated, because we cannot register service in that case
-                            if (value == true && !IsElevated && UseService)
+                            if (value && !IsElevated && UseService)
                             {
                                 UseService = false;
                             }

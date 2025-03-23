@@ -102,7 +102,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     NotifySettingsChanged();
 
-                    if (_isNewPlusEnabled == true)
+                    if (_isNewPlusEnabled)
                     {
                         CopyTemplateExamples(_templateLocation);
                     }
