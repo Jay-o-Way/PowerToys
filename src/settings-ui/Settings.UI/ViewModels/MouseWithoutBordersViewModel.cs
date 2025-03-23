@@ -1144,7 +1144,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 LoadViewModelFromSettings(SettingsUtils.GetSettings<MouseWithoutBordersSettings>("MouseWithoutBorders"));
                 return true;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Logger.LogError(ex.Message);
                 return false;

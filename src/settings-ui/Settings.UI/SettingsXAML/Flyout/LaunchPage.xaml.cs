@@ -4,7 +4,7 @@
 using System;
 using System.Threading;
 
-using global::Windows.System;
+using Windows.System;
 using ManagedCommon;
 using Microsoft.PowerToys.Settings.UI.Controls;
 using Microsoft.PowerToys.Settings.UI.Library;

@@ -224,7 +224,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public void OnClosing()
         {
-            Microsoft.UI.Xaml.Controls.NavigationViewItem selectedItem = this.navigationView.SelectedItem as Microsoft.UI.Xaml.Controls.NavigationViewItem;
+            NavigationViewItem selectedItem = this.navigationView.SelectedItem as NavigationViewItem;
             if (selectedItem != null)
             {
                 Modules[(int)(PowerToysModules)Enum.Parse(typeof(PowerToysModules), (string)selectedItem.Tag, true)].LogClosingModuleEvent();
@@ -238,9 +238,9 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
                 : navigationView.MenuItems[(int)selectedModule];
         }
 
-        private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            Microsoft.UI.Xaml.Controls.NavigationViewItem selectedItem = args.SelectedItem as Microsoft.UI.Xaml.Controls.NavigationViewItem;
+            NavigationViewItem selectedItem = args.SelectedItem as NavigationViewItem;
 
             if (selectedItem != null)
             {

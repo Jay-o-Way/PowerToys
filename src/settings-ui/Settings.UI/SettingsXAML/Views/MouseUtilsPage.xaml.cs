@@ -30,7 +30,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
                     tempSettingsUtils.DeleteSettings("Find My Mouse");
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
             }
 

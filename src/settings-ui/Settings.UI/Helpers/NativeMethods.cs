@@ -67,7 +67,7 @@ namespace Microsoft.PowerToys.Settings.UI.Helpers
         [DllImport("user32.dll")]
         public static extern bool AllowSetForegroundWindow(int dwProcessId);
 
-        [System.Runtime.InteropServices.DllImport("User32.dll")]
+        [DllImport("User32.dll")]
         public static extern bool SetForegroundWindow(IntPtr handle);
 
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]

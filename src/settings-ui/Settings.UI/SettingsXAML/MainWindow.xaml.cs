@@ -189,7 +189,7 @@ namespace Microsoft.PowerToys.Settings.UI
             PowerToysTelemetry.Log.WriteEvent(new SettingsBootEvent() { BootTimeMs = bootTime.ElapsedMilliseconds });
         }
 
-        public void NavigateToSection(System.Type type)
+        public void NavigateToSection(Type type)
         {
             ShellPage.Navigate(type);
         }

@@ -42,7 +42,7 @@ namespace Microsoft.PowerToys.Settings.UI.Helpers
             }
         }
 
-        public static bool GetIsModuleEnabled(Library.GeneralSettings generalSettingsConfig, ModuleType moduleType)
+        public static bool GetIsModuleEnabled(GeneralSettings generalSettingsConfig, ModuleType moduleType)
         {
             switch (moduleType)
             {

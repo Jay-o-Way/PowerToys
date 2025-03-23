@@ -11,7 +11,7 @@ namespace Microsoft.PowerToys.Settings.UI.Helpers
 
         static ResourceLoaderInstance()
         {
-            ResourceLoader = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader("PowerToys.Settings.pri");
+            ResourceLoader = new ResourceLoader("PowerToys.Settings.pri");
         }
     }
 }

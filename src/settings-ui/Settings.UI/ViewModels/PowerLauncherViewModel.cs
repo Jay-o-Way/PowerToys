@@ -104,7 +104,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     break;
             }
 
-            SearchPluginsCommand = new Library.ViewModels.Commands.RelayCommand(SearchPlugins);
+            SearchPluginsCommand = new RelayCommand(SearchPlugins);
         }
 
         private void InitializeEnabledValue()

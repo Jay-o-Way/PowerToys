@@ -12,7 +12,7 @@ using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace Microsoft.PowerToys.Settings.UI.Behaviors
 {
-    public class NavigationViewHeaderBehavior : Behavior<WinUI.NavigationView>
+    public class NavigationViewHeaderBehavior : Behavior<NavigationView>
     {
         private static NavigationViewHeaderBehavior current;
         private Page currentPage;

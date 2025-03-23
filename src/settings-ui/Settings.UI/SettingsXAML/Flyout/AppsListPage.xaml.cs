@@ -5,7 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Threading;
 
-using global::Windows.System;
+using Windows.System;
 using Microsoft.PowerToys.Settings.UI.Library;
 using Microsoft.PowerToys.Settings.UI.ViewModels;
 using Microsoft.PowerToys.Settings.UI.Views;

@@ -117,7 +117,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         /// <summary>
         /// Gets a collection of functions that handle IPC responses.
         /// </summary>
-        public List<System.Action<JsonObject>> IPCResponseHandleList { get; } = [];
+        public List<Action<JsonObject>> IPCResponseHandleList { get; } = [];
 
         public static bool IsElevated { get; set; }
 

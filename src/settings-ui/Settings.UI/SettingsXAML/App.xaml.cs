@@ -67,7 +67,7 @@ namespace Microsoft.PowerToys.Settings.UI
 
         public bool ShowScoobe { get; set; }
 
-        public Type StartupPage { get; set; } = typeof(Views.DashboardPage);
+        public Type StartupPage { get; set; } = typeof(DashboardPage);
 
         public static Action<string> IPCMessageReceivedCallback { get; set; }
 
@@ -166,7 +166,7 @@ namespace Microsoft.PowerToys.Settings.UI
 
             try
             {
-                var requestedSettings = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(File.ReadAllText(ipcFileName), SourceGenerationContextContext.Default.DictionaryStringListString);
+                var requestedSettings = JsonSerializer.Deserialize(File.ReadAllText(ipcFileName), SourceGenerationContextContext.Default.DictionaryStringListString);
                 File.WriteAllText(ipcFileName, GetSettingCommandLineCommand.Execute(requestedSettings));
             }
             catch (Exception ex)
@@ -288,7 +288,7 @@ namespace Microsoft.PowerToys.Settings.UI
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="args">Details about the launch request and process.</param>
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             var cmdArgs = Environment.GetCommandLineArgs();
 
@@ -349,7 +349,7 @@ namespace Microsoft.PowerToys.Settings.UI
             }
 
             InitializeWithWindow.Initialize(dialog, handle);
-            return dialog.ShowAsync().AsTask<IUICommand>();
+            return dialog.ShowAsync().AsTask();
         }
 
         public static TwoWayPipeMessageIPCManaged GetTwoWayIPCManager()

@@ -20,7 +20,7 @@ namespace Microsoft.PowerToys.Settings.UI.Helpers
             try
             {
                 var json = File.ReadAllText(_placementPath);
-                var placement = JsonSerializer.Deserialize<WINDOWPLACEMENT>(json, SourceGenerationContextContext.Default.WINDOWPLACEMENT);
+                var placement = JsonSerializer.Deserialize(json, SourceGenerationContextContext.Default.WINDOWPLACEMENT);
 
                 placement.Length = Marshal.SizeOf<WINDOWPLACEMENT>();
                 placement.Flags = 0;

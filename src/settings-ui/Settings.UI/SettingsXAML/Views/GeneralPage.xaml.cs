@@ -140,7 +140,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             // as the old one (PickSingleFolderAsync) can't work when the process is elevated
             // TODO: go back PickSingleFolderAsync when it's fixed
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.GetSettingsWindow());
-            string r = await Task.FromResult<string>(ShellGetFolder.GetFolderDialog(hwnd));
+            string r = await Task.FromResult(ShellGetFolder.GetFolderDialog(hwnd));
             return r;
         }
 

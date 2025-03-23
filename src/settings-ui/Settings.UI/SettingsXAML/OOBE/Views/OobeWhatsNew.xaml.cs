@@ -61,7 +61,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
             bool registryValue = DataDiagnosticsSettings.GetEnabledValue();
 
-            bool isFirstRunAfterUpdate = (App.Current as Microsoft.PowerToys.Settings.UI.App).ShowScoobe;
+            bool isFirstRunAfterUpdate = (App.Current as App).ShowScoobe;
             return isFirstRunAfterUpdate && registryValue == false;
         }
 
@@ -91,7 +91,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
             // https://docs.github.com/rest/overview/resources-in-the-rest-api#user-agent-required
             getReleaseInfoClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "PowerToys");
             releaseNotesJSON = await getReleaseInfoClient.GetStringAsync("https://api.github.com/repos/microsoft/PowerToys/releases");
-            IList<PowerToysReleaseInfo> releases = JsonSerializer.Deserialize<IList<PowerToysReleaseInfo>>(releaseNotesJSON, SourceGenerationContextContext.Default.IListPowerToysReleaseInfo);
+            IList<PowerToysReleaseInfo> releases = JsonSerializer.Deserialize(releaseNotesJSON, SourceGenerationContextContext.Default.IListPowerToysReleaseInfo);
 
             // Get the latest releases
             var latestReleases = releases.OrderByDescending(release => release.PublishedDate).Take(5);
