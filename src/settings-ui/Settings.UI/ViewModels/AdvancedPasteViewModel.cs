@@ -207,14 +207,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             try
             {
                 object allowClipboardHistory = Registry.GetValue(registryKey, "AllowClipboardHistory", null);
-                if (allowClipboardHistory != null)
-                {
-                    return (int)allowClipboardHistory == 0;
-                }
-                else
-                {
-                    return false;
-                }
+                return allowClipboardHistory != null ? (int)allowClipboardHistory == 0 : false;
             }
             catch (Exception)
             {

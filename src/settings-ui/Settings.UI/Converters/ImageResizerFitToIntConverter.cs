@@ -13,21 +13,11 @@ public sealed partial class ImageResizerFitToIntConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, string language)
     {
-        if (value is ResizeFit)
-        {
-            return (int)value;
-        }
-
-        return 0;
+        return value is ResizeFit ? (int)value : (object)0;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, string language)
     {
-        if (value is int intValue)
-        {
-            return (ResizeFit)intValue;
-        }
-
-        return ResizeFit.Fill;
+        return value is int intValue ? (ResizeFit)intValue : (object)ResizeFit.Fill;
     }
 }

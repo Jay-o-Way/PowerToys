@@ -40,12 +40,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             openFileName.Hwnd = windowHandle;
 
             bool result = NativeMethods.GetOpenFileName(openFileName);
-            if (result)
-            {
-                return openFileName.File;
-            }
-
-            return null;
+            return result ? openFileName.File : null;
         }
 
         private static LOGFONT PickFontDialog(LOGFONT font)

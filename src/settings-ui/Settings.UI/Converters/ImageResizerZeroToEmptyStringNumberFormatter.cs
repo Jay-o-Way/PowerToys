@@ -25,12 +25,9 @@ public partial class ImageResizerZeroToEmptyStringNumberFormatter
 
     public double? ParseDouble(string text)
     {
-        if (string.IsNullOrWhiteSpace(text))
-        {
-            return 0.0;
-        }
-
-        return double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture, out double result) ? result : 0.0;
+        return string.IsNullOrWhiteSpace(text)
+            ? 0.0
+            : double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture, out double result) ? result : 0.0;
     }
 
     public long? ParseInt(string text) => throw new NotImplementedException();

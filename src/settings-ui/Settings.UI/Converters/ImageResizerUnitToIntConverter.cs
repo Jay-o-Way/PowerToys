@@ -13,21 +13,11 @@ public sealed partial class ImageResizerUnitToIntConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, string language)
     {
-        if (value is ResizeUnit)
-        {
-            return (int)value;
-        }
-
-        return 0;
+        return value is ResizeUnit ? (int)value : (object)0;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, string language)
     {
-        if (value is int intValue)
-        {
-            return (ResizeUnit)intValue;
-        }
-
-        return ResizeUnit.Centimeter;
+        return value is int intValue ? (ResizeUnit)intValue : (object)ResizeUnit.Centimeter;
     }
 }

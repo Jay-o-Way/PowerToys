@@ -148,12 +148,9 @@ namespace Microsoft.PowerToys.Settings.UI.Panels
             };
 
             var selectedIndex = this.PreviewTypeSetting.SelectedIndex;
-            if ((selectedIndex < 0) || (selectedIndex >= previewTypeOrder.Length))
-            {
-                throw new InvalidOperationException();
-            }
-
-            return previewTypeOrder[selectedIndex];
+            return (selectedIndex < 0) || (selectedIndex >= previewTypeOrder.Length)
+                ? throw new InvalidOperationException()
+                : previewTypeOrder[selectedIndex];
         }
     }
 }

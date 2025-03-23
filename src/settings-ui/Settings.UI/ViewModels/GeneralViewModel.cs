@@ -285,14 +285,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (!IsElevated)
-                {
-                    return RunningAsUserDefaultText;
-                }
-                else
-                {
-                    return RunningAsAdminDefaultText;
-                }
+                return !IsElevated ? RunningAsUserDefaultText : RunningAsAdminDefaultText;
             }
 
             set
@@ -1078,14 +1071,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             if (ResourceLoader != null)
             {
                 var result = ResourceLoader.GetString(resource);
-                if (string.IsNullOrEmpty(result))
-                {
-                    return resource.ToUpperInvariant() + "!!!";
-                }
-                else
-                {
-                    return result;
-                }
+                return string.IsNullOrEmpty(result) ? resource.ToUpperInvariant() + "!!!" : result;
             }
             else
             {

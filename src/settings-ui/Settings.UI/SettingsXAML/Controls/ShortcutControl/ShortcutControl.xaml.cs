@@ -292,12 +292,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             }
 
             // Either the cancel or save button has keyboard focus.
-            if (FocusManager.GetFocusedElement(LayoutRoot.XamlRoot).GetType() == typeof(Button))
-            {
-                return false;
-            }
-
-            return true;
+            return FocusManager.GetFocusedElement(LayoutRoot.XamlRoot).GetType() != typeof(Button);
         }
 
         private void Hotkey_KeyDown(int key)
@@ -470,14 +465,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         private static bool ComboIsValid(HotkeySettings settings)
         {
-            if (settings != null && (settings.IsValid() || settings.IsEmpty()))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return settings != null && (settings.IsValid() || settings.IsEmpty());
         }
 
         private void ShortcutDialog_SettingsWindow_Activated(object sender, WindowActivatedEventArgs args)

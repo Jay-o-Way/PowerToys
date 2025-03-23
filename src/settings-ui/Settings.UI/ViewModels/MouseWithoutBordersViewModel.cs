@@ -406,14 +406,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 using (var syncHelper = await GetSettingsSyncHelperAsync())
                 {
                     var task = syncHelper?.Endpoint?.RequestMachineSocketStateAsync();
-                    if (task != null)
-                    {
-                        return await task;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    return task != null ? await task : null;
                 }
             }
         }
@@ -737,12 +730,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (_clipboardSharingEnabledGpoConfiguration == GpoRuleConfigured.Disabled)
-                {
-                    return false;
-                }
-
-                return Settings.Properties.ShareClipboard;
+                return _clipboardSharingEnabledGpoConfiguration == GpoRuleConfigured.Disabled ? false : Settings.Properties.ShareClipboard;
             }
 
             set
@@ -763,12 +751,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (_fileTransferEnabledGpoConfiguration == GpoRuleConfigured.Disabled)
-                {
-                    return false;
-                }
-
-                return Settings.Properties.TransferFile && Settings.Properties.ShareClipboard;
+                return _fileTransferEnabledGpoConfiguration == GpoRuleConfigured.Disabled
+                    ? false
+                    : Settings.Properties.TransferFile && Settings.Properties.ShareClipboard;
             }
 
             set
@@ -862,12 +847,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             // to make its behavior consistent with the old UI and MWB internal code.
             get
             {
-                if (_disableUserDefinedIpMappingRulesGpoConfiguration == GpoRuleConfigured.Enabled)
-                {
-                    return string.Empty;
-                }
-
-                return Settings.Properties.Name2IP.Value.Replace("\r\n", "\r");
+                return _disableUserDefinedIpMappingRulesGpoConfiguration == GpoRuleConfigured.Enabled
+                    ? string.Empty
+                    : Settings.Properties.Name2IP.Value.Replace("\r\n", "\r");
             }
 
             set
@@ -934,12 +916,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (_disallowBlockingScreensaverGpoConfiguration == GpoRuleConfigured.Enabled)
-                {
-                    return false;
-                }
-
-                return Settings.Properties.BlockScreenSaverOnOtherMachines;
+                return _disallowBlockingScreensaverGpoConfiguration == GpoRuleConfigured.Enabled
+                    ? false
+                    : Settings.Properties.BlockScreenSaverOnOtherMachines;
             }
 
             set

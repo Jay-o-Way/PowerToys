@@ -18,14 +18,7 @@ namespace Microsoft.PowerToys.Settings.UI.Converters
             }
             else
             {
-                if (value.ToString() == (string)parameter)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return value.ToString() == (string)parameter ? true : (object)false;
             }
         }
 

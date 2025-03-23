@@ -35,14 +35,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (_enabledStateIsGPOConfigured)
-                {
-                    return _enabledGPOConfiguration;
-                }
-                else
-                {
-                    return _isEnabled;
-                }
+                return _enabledStateIsGPOConfigured ? _enabledGPOConfiguration : _isEnabled;
             }
 
             set

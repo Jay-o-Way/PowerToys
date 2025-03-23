@@ -135,12 +135,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             get
             {
-                if (_hideFileExtensionIsGPOConfigured)
-                {
-                    return _hideFileExtensionGpoRuleConfiguration == GpoRuleConfigured.Enabled;
-                }
-
-                return _hideFileExtension;
+                return _hideFileExtensionIsGPOConfigured ? _hideFileExtensionGpoRuleConfiguration == GpoRuleConfigured.Enabled : _hideFileExtension;
             }
 
             set
@@ -185,12 +180,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             get
             {
                 // Check to see if setting has been enabled or disabled via GPO, and if so, use that value
-                if (IsReplaceVariablesSettingGPOConfigured)
-                {
-                    return GPOWrapper.GetConfiguredNewPlusReplaceVariablesValue() == GpoRuleConfigured.Enabled;
-                }
-
-                return _replaceVariables;
+                return IsReplaceVariablesSettingGPOConfigured
+                    ? GPOWrapper.GetConfiguredNewPlusReplaceVariablesValue() == GpoRuleConfigured.Enabled
+                    : _replaceVariables;
             }
 
             set
