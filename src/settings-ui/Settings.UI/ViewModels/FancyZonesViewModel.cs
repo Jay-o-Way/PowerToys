@@ -763,14 +763,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             {
                 if (value != _editorHotkey)
                 {
-                    if (value == null || value.IsEmpty())
-                    {
-                        _editorHotkey = FZConfigProperties.DefaultEditorHotkeyValue;
-                    }
-                    else
-                    {
-                        _editorHotkey = value;
-                    }
+                    _editorHotkey = value == null || value.IsEmpty() ? FZConfigProperties.DefaultEditorHotkeyValue : value;
 
                     Settings.Properties.FancyzonesEditorHotkey.Value = _editorHotkey;
                     NotifyPropertyChanged();
@@ -809,14 +802,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             {
                 if (value != _nextTabHotkey)
                 {
-                    if (value == null || value.IsEmpty())
-                    {
-                        _nextTabHotkey = FZConfigProperties.DefaultNextTabHotkeyValue;
-                    }
-                    else
-                    {
-                        _nextTabHotkey = value;
-                    }
+                    _nextTabHotkey = value == null || value.IsEmpty() ? FZConfigProperties.DefaultNextTabHotkeyValue : value;
 
                     Settings.Properties.FancyzonesNextTabHotkey.Value = _nextTabHotkey;
                     NotifyPropertyChanged();
@@ -835,14 +821,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             {
                 if (value != _prevTabHotkey)
                 {
-                    if (value == null || value.IsEmpty())
-                    {
-                        _prevTabHotkey = FZConfigProperties.DefaultPrevTabHotkeyValue;
-                    }
-                    else
-                    {
-                        _prevTabHotkey = value;
-                    }
+                    _prevTabHotkey = value == null || value.IsEmpty() ? FZConfigProperties.DefaultPrevTabHotkeyValue : value;
 
                     Settings.Properties.FancyzonesPrevTabHotkey.Value = _prevTabHotkey;
                     NotifyPropertyChanged();

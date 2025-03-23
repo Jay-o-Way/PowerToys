@@ -210,14 +210,9 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
             }
 
             // Update UI
-            if (commandArg == "Yes")
-            {
-                WhatsNewDataDiagnosticsInfoBar.Header = ResourceLoaderInstance.ResourceLoader.GetString("Oobe_WhatsNew_DataDiagnostics_Yes_Click_InfoBar_Title");
-            }
-            else
-            {
-                WhatsNewDataDiagnosticsInfoBar.Header = ResourceLoaderInstance.ResourceLoader.GetString("Oobe_WhatsNew_DataDiagnostics_No_Click_InfoBar_Title");
-            }
+            WhatsNewDataDiagnosticsInfoBar.Header = commandArg == "Yes"
+                ? ResourceLoaderInstance.ResourceLoader.GetString("Oobe_WhatsNew_DataDiagnostics_Yes_Click_InfoBar_Title")
+                : (object)ResourceLoaderInstance.ResourceLoader.GetString("Oobe_WhatsNew_DataDiagnostics_No_Click_InfoBar_Title");
 
             WhatsNewDataDiagnosticsInfoBarDescText.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             WhatsNewDataDiagnosticsInfoBarDescTextYesClicked.Visibility = Microsoft.UI.Xaml.Visibility.Visible;

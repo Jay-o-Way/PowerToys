@@ -79,14 +79,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
                 SetValue(IsActiveProperty, value);
                 _enabled = value;
 
-                if (value)
-                {
-                    EditButton.IsEnabled = true;
-                }
-                else
-                {
-                    EditButton.IsEnabled = false;
-                }
+                EditButton.IsEnabled = value;
             }
         }
 
@@ -312,14 +305,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
                 shortcutDialog.IsPrimaryButtonEnabled = false;
 
                 // Check if the one key is a hotkey
-                if (internalSettings.Shift || internalSettings.Win || internalSettings.Alt || internalSettings.Ctrl)
-                {
-                    c.IsError = false;
-                }
-                else
-                {
-                    c.IsError = true;
-                }
+                c.IsError = !internalSettings.Shift && !internalSettings.Win && !internalSettings.Alt && !internalSettings.Ctrl;
             }
 
             // Tab and Shift+Tab are accessible keys and should not be displayed in the hotkey control.

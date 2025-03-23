@@ -160,14 +160,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             _showWhatsNewAfterUpdatesIsGpoDisabled = GPOWrapper.GetDisableShowWhatsNewAfterUpdatesValue() == GpoRuleConfigured.Enabled;
             _enableDataDiagnosticsIsGpoDisallowed = GPOWrapper.GetAllowDataDiagnosticsValue() == GpoRuleConfigured.Disabled;
 
-            if (_enableDataDiagnosticsIsGpoDisallowed)
-            {
-                _enableDataDiagnostics = false;
-            }
-            else
-            {
-                _enableDataDiagnostics = DataDiagnosticsSettings.GetEnabledValue();
-            }
+            _enableDataDiagnostics = _enableDataDiagnosticsIsGpoDisallowed ? false : DataDiagnosticsSettings.GetEnabledValue();
 
             _enableViewDataDiagnostics = DataDiagnosticsSettings.GetViewEnabledValue();
             _enableViewDataDiagnosticsOnLoad = _enableViewDataDiagnostics;
@@ -512,14 +505,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 {
                     _enableViewDataDiagnostics = value;
 
-                    if (_enableViewDataDiagnostics != _enableViewDataDiagnosticsOnLoad)
-                    {
-                        _viewDiagnosticDataViewerChanged = true;
-                    }
-                    else
-                    {
-                        _viewDiagnosticDataViewerChanged = false;
-                    }
+                    _viewDiagnosticDataViewerChanged = _enableViewDataDiagnostics != _enableViewDataDiagnosticsOnLoad;
 
                     DataDiagnosticsSettings.SetViewEnabledValue(_enableViewDataDiagnostics);
                     OnPropertyChanged(nameof(EnableViewDataDiagnostics));
@@ -902,14 +888,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     _languagesIndex = value;
                     OnPropertyChanged(nameof(LanguagesIndex));
                     NotifyLanguageChanged();
-                    if (_initLanguagesIndex != value)
-                    {
-                        LanguageChanged = true;
-                    }
-                    else
-                    {
-                        LanguageChanged = false;
-                    }
+                    LanguageChanged = _initLanguagesIndex != value;
                 }
             }
         }

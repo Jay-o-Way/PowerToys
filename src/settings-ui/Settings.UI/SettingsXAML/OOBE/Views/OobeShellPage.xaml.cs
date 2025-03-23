@@ -233,14 +233,9 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         public void NavigateToModule(PowerToysModules selectedModule)
         {
-            if (selectedModule == PowerToysModules.WhatsNew)
-            {
-                navigationView.SelectedItem = navigationView.FooterMenuItems[0];
-            }
-            else
-            {
-                navigationView.SelectedItem = navigationView.MenuItems[(int)selectedModule];
-            }
+            navigationView.SelectedItem = selectedModule == PowerToysModules.WhatsNew
+                ? navigationView.FooterMenuItems[0]
+                : navigationView.MenuItems[(int)selectedModule];
         }
 
         private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)

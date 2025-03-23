@@ -46,14 +46,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         private void SetEnabledState()
         {
-            if (this.IsEnabled)
-            {
-                ColorPreviewBorder.Opacity = 1;
-            }
-            else
-            {
-                ColorPreviewBorder.Opacity = 0.2;
-            }
+            ColorPreviewBorder.Opacity = this.IsEnabled ? 1 : 0.2;
         }
     }
 }

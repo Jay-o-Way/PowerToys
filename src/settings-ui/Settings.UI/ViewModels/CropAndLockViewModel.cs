@@ -105,14 +105,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             {
                 if (value != _reparentHotkey)
                 {
-                    if (value == null)
-                    {
-                        _reparentHotkey = CropAndLockProperties.DefaultReparentHotkeyValue;
-                    }
-                    else
-                    {
-                        _reparentHotkey = value;
-                    }
+                    _reparentHotkey = value == null ? CropAndLockProperties.DefaultReparentHotkeyValue : value;
 
                     Settings.Properties.ReparentHotkey.Value = _reparentHotkey;
                     NotifyPropertyChanged();
@@ -136,14 +129,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             {
                 if (value != _thumbnailHotkey)
                 {
-                    if (value == null)
-                    {
-                        _thumbnailHotkey = CropAndLockProperties.DefaultThumbnailHotkeyValue;
-                    }
-                    else
-                    {
-                        _thumbnailHotkey = value;
-                    }
+                    _thumbnailHotkey = value == null ? CropAndLockProperties.DefaultThumbnailHotkeyValue : value;
 
                     Settings.Properties.ThumbnailHotkey.Value = _thumbnailHotkey;
                     NotifyPropertyChanged();

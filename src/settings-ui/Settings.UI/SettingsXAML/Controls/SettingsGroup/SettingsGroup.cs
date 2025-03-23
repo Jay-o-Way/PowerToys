@@ -85,14 +85,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
                 return;
             }
 
-            if (_settingsGroup.Description == null)
-            {
-                _settingsGroup._descriptionPresenter.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                _settingsGroup._descriptionPresenter.Visibility = Visibility.Visible;
-            }
+            _settingsGroup._descriptionPresenter.Visibility = _settingsGroup.Description == null ? Visibility.Collapsed : Visibility.Visible;
         }
 
         protected override AutomationPeer OnCreateAutomationPeer()
