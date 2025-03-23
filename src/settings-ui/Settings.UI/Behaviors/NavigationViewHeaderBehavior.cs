@@ -104,7 +104,7 @@ namespace Microsoft.PowerToys.Settings.UI.Behaviors
                 else
                 {
                     var headerFromPage = GetHeaderContext(currentPage);
-                    AssociatedObject.Header = headerFromPage != null ? headerFromPage : DefaultHeader;
+                    AssociatedObject.Header = headerFromPage ?? DefaultHeader;
 
                     AssociatedObject.AlwaysShowHeader = headerMode == NavigationViewHeaderMode.Always;
                 }
