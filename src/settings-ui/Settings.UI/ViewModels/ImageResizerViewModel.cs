@@ -144,7 +144,7 @@ public partial class ImageResizerViewModel : Observable
                 // To set the status of ImageResizer in the General PowerToys settings.
                 _isEnabled = value;
                 GeneralSettingsConfig.Enabled.ImageResizer = value;
-                OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                 SendConfigMSG(snd.ToString());
                 OnPropertyChanged(nameof(IsEnabled));

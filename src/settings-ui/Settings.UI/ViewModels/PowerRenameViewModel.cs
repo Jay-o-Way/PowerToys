@@ -52,7 +52,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     throw;
                 }
 #endif
-                PowerRenameLocalProperties localSettings = new PowerRenameLocalProperties();
+                PowerRenameLocalProperties localSettings = new();
                 Settings = new PowerRenameSettings(localSettings);
                 _settingsUtils.SaveSettings(localSettings.ToJsonString(), GetSettingsSubPath(), "power-rename-settings.json");
             }
@@ -113,7 +113,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 if (value != _powerRenameEnabled)
                 {
                     GeneralSettingsConfig.Enabled.PowerRename = value;
-                    OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                     SendConfigMSG(snd.ToString());
 
@@ -258,8 +258,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
             if (SendConfigMSG != null)
             {
-                SndPowerRenameSettings snd = new SndPowerRenameSettings(Settings);
-                SndModuleSettings<SndPowerRenameSettings> ipcMessage = new SndModuleSettings<SndPowerRenameSettings>(snd);
+                SndPowerRenameSettings snd = new(Settings);
+                SndModuleSettings<SndPowerRenameSettings> ipcMessage = new(snd);
                 SendConfigMSG(ipcMessage.ToJsonString());
             }
         }

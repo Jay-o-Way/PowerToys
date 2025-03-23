@@ -27,7 +27,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
         private static async Task<bool> GetIsExperiment()
         {
-            Experiments landingPageExp = new Experiments();
+            Experiments landingPageExp = new();
             var experimentEnabled = await landingPageExp.EnableLandingPageExperimentAsync();
             return experimentEnabled;
         }

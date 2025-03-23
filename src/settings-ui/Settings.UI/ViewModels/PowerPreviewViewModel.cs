@@ -984,8 +984,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
             if (SendConfigMSG != null)
             {
-                SndPowerPreviewSettings snd = new SndPowerPreviewSettings(Settings);
-                SndModuleSettings<SndPowerPreviewSettings> ipcMessage = new SndModuleSettings<SndPowerPreviewSettings>(snd);
+                SndPowerPreviewSettings snd = new(Settings);
+                SndModuleSettings<SndPowerPreviewSettings> ipcMessage = new(snd);
                 SendConfigMSG(ipcMessage.ToJsonString());
             }
         }

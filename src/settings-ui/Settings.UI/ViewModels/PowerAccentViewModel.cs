@@ -182,7 +182,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     GeneralSettingsConfig.Enabled.PowerAccent = value;
                     OnPropertyChanged(nameof(IsEnabled));
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
                 }
             }
@@ -367,8 +367,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
             if (SendConfigMSG != null)
             {
-                SndPowerAccentSettings snd = new SndPowerAccentSettings(_powerAccentSettings);
-                SndModuleSettings<SndPowerAccentSettings> ipcMessage = new SndModuleSettings<SndPowerAccentSettings>(snd);
+                SndPowerAccentSettings snd = new(_powerAccentSettings);
+                SndModuleSettings<SndPowerAccentSettings> ipcMessage = new(snd);
                 SendConfigMSG(ipcMessage.ToJsonString());
             }
         }

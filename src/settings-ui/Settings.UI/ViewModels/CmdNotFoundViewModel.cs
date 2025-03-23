@@ -21,15 +21,15 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 {
     public partial class CmdNotFoundViewModel : Observable
     {
-        public ButtonClickCommand CheckRequirementsEventHandler => new ButtonClickCommand(CheckCommandNotFoundRequirements);
+        public ButtonClickCommand CheckRequirementsEventHandler => new(CheckCommandNotFoundRequirements);
 
-        public ButtonClickCommand InstallPowerShell7EventHandler => new ButtonClickCommand(InstallPowerShell7);
+        public ButtonClickCommand InstallPowerShell7EventHandler => new(InstallPowerShell7);
 
-        public ButtonClickCommand InstallWinGetClientModuleEventHandler => new ButtonClickCommand(InstallWinGetClientModule);
+        public ButtonClickCommand InstallWinGetClientModuleEventHandler => new(InstallWinGetClientModule);
 
-        public ButtonClickCommand InstallModuleEventHandler => new ButtonClickCommand(InstallModule);
+        public ButtonClickCommand InstallModuleEventHandler => new(InstallModule);
 
-        public ButtonClickCommand UninstallModuleEventHandler => new ButtonClickCommand(UninstallModule);
+        public ButtonClickCommand UninstallModuleEventHandler => new(UninstallModule);
 
         private GpoRuleConfigured _enabledGpoRuleConfiguration;
         private bool _moduleIsGpoEnabled;

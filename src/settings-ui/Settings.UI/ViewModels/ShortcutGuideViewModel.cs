@@ -109,7 +109,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     // To update the status of shortcut guide in General PowerToy settings.
                     GeneralSettingsConfig.Enabled.ShortcutGuide = value;
-                    OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                     SendConfigMSG(snd.ToString());
                     OnPropertyChanged(nameof(IsEnabled));
@@ -262,8 +262,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             OnPropertyChanged(propertyName);
 
-            SndShortcutGuideSettings outsettings = new SndShortcutGuideSettings(Settings);
-            SndModuleSettings<SndShortcutGuideSettings> ipcMessage = new SndModuleSettings<SndShortcutGuideSettings>(outsettings);
+            SndShortcutGuideSettings outsettings = new(Settings);
+            SndModuleSettings<SndShortcutGuideSettings> ipcMessage = new(outsettings);
             SendConfigMSG(ipcMessage.ToJsonString());
             SettingsUtils.SaveSettings(Settings.ToJsonString(), ModuleName);
         }

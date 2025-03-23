@@ -73,7 +73,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     GeneralSettingsConfig.Enabled.MouseJump = value;
                     OnPropertyChanged(nameof(_isMouseJumpEnabled));
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
 
                     NotifyMouseJumpPropertyChanged();
@@ -504,8 +504,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             OnPropertyChanged(propertyName);
 
-            SndMouseJumpSettings outsettings = new SndMouseJumpSettings(MouseJumpSettingsConfig);
-            SndModuleSettings<SndMouseJumpSettings> ipcMessage = new SndModuleSettings<SndMouseJumpSettings>(outsettings);
+            SndMouseJumpSettings outsettings = new(MouseJumpSettingsConfig);
+            SndModuleSettings<SndMouseJumpSettings> ipcMessage = new(outsettings);
             SendConfigMSG(ipcMessage.ToJsonString());
             SettingsUtils.SaveSettings(MouseJumpSettingsConfig.ToJsonString(), MouseJumpSettings.ModuleName);
         }

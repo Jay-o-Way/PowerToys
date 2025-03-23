@@ -89,7 +89,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             ColorFormatModel color = ((MenuFlyoutItem)sender).DataContext as ColorFormatModel;
 
-            ContentDialog dialog = new ContentDialog();
+            ContentDialog dialog = new();
             dialog.XamlRoot = RootPage.XamlRoot;
             dialog.Title = color.Name;
             dialog.PrimaryButtonText = resourceLoader.GetString("Yes");

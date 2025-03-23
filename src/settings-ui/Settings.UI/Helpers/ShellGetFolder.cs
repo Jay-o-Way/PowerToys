@@ -34,7 +34,7 @@ namespace Microsoft.PowerToys.Settings.UI.Helpers
         {
             // windows MAX_PATH with long path enable can be approximated 32k char long
             // allocating more than double (unicode) to hold the path
-            StringBuilder sb = new StringBuilder(65000);
+            StringBuilder sb = new(65000);
             IntPtr bufferAddress = Marshal.AllocHGlobal(65000);
             IntPtr pidl = IntPtr.Zero;
             BrowseInformation browseInfo;

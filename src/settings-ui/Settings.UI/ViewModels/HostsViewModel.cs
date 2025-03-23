@@ -31,7 +31,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private Func<string, int> SendConfigMSG { get; }
 
-        public ButtonClickCommand LaunchEventHandler => new ButtonClickCommand(Launch);
+        public ButtonClickCommand LaunchEventHandler => new(Launch);
 
         public bool IsEnabled
         {
@@ -51,7 +51,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     // Set the status in the general settings configuration
                     GeneralSettingsConfig.Enabled.Hosts = value;
-                    OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                     SendConfigMSG(snd.ToString());
                     OnPropertyChanged(nameof(IsEnabled));

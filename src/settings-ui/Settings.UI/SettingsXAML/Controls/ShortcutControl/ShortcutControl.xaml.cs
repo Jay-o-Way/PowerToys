@@ -58,7 +58,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             description.Text = text;
         }
 
-        private ShortcutDialogContentControl c = new ShortcutDialogContentControl();
+        private ShortcutDialogContentControl c = new();
         private ContentDialog shortcutDialog;
 
         public bool AllowDisable
@@ -234,7 +234,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
         // Function to send a single key event to the system which would be ignored by the hotkey control.
         private void SendSingleKeyboardInput(short keyCode, uint keyStatus)
         {
-            NativeKeyboardHelper.INPUT inputShift = new NativeKeyboardHelper.INPUT
+            NativeKeyboardHelper.INPUT inputShift = new()
             {
                 type = NativeKeyboardHelper.INPUTTYPE.INPUT_KEYBOARD,
                 data = new NativeKeyboardHelper.InputUnion

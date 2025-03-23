@@ -30,7 +30,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         private GeneralSettings GeneralSettingsConfig { get; set; }
 
         private readonly ISettingsUtils _settingsUtils;
-        private readonly System.Threading.Lock _delayedActionLock = new System.Threading.Lock();
+        private readonly System.Threading.Lock _delayedActionLock = new();
 
         private readonly ColorPickerSettings _colorPickerSettings;
         private Timer _delayedTimer;
@@ -242,7 +242,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     format = ColorFormatHelper.GetDefaultFormat(storedName);
                 }
 
-                ColorFormatModel customColorFormat = new ColorFormatModel(storedName, format, storedColorFormat.Value.Key);
+                ColorFormatModel customColorFormat = new(storedName, format, storedColorFormat.Value.Key);
                 customColorFormat.PropertyChanged += ColorFormat_PropertyChanged;
                 ColorFormats.Add(customColorFormat);
             }
@@ -341,7 +341,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                 ColorFormats[0].CanMoveUp = true;
             }
 
-            ColorFormatModel newModel = new ColorFormatModel(newColorName, newColorFormat, isShown);
+            ColorFormatModel newModel = new(newColorName, newColorFormat, isShown);
             newModel.PropertyChanged += ColorFormat_PropertyChanged;
             ColorFormats.Insert(0, newModel);
             SetPreviewSelectedIndex();
@@ -387,7 +387,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             var resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
             string defaultName = resourceLoader.GetString("CustomColorFormatDefaultName");
-            ColorFormatModel newColorFormatModel = new ColorFormatModel();
+            ColorFormatModel newColorFormatModel = new();
             newColorFormatModel.Name = defaultName;
             int extensionNumber = 1;
             while (ColorFormats.Any(x => x.Name.Equals(newColorFormatModel.Name, StringComparison.Ordinal)))

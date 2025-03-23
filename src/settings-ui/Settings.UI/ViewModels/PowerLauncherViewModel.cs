@@ -175,7 +175,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     OnPropertyChanged(nameof(ShowAllPluginsDisabledWarning));
                     OnPropertyChanged(nameof(ShowPluginsLoadingMessage));
                     OnPropertyChanged(nameof(ShowPluginsAreGpoManagedInfo));
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
                 }
             }

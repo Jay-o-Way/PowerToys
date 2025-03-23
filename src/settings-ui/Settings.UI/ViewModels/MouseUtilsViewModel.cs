@@ -166,7 +166,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     GeneralSettingsConfig.Enabled.FindMyMouse = value;
                     OnPropertyChanged(nameof(IsFindMyMouseEnabled));
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
 
                     NotifyFindMyMousePropertyChanged();
@@ -449,8 +449,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             OnPropertyChanged(propertyName);
 
-            SndFindMyMouseSettings outsettings = new SndFindMyMouseSettings(FindMyMouseSettingsConfig);
-            SndModuleSettings<SndFindMyMouseSettings> ipcMessage = new SndModuleSettings<SndFindMyMouseSettings>(outsettings);
+            SndFindMyMouseSettings outsettings = new(FindMyMouseSettingsConfig);
+            SndModuleSettings<SndFindMyMouseSettings> ipcMessage = new(outsettings);
             SendConfigMSG(ipcMessage.ToJsonString());
             SettingsUtils.SaveSettings(FindMyMouseSettingsConfig.ToJsonString(), FindMyMouseSettings.ModuleName);
         }
@@ -473,7 +473,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     GeneralSettingsConfig.Enabled.MouseHighlighter = value;
                     OnPropertyChanged(nameof(_isMouseHighlighterEnabled));
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
 
                     NotifyMouseHighlighterPropertyChanged();
@@ -636,8 +636,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             OnPropertyChanged(propertyName);
 
-            SndMouseHighlighterSettings outsettings = new SndMouseHighlighterSettings(MouseHighlighterSettingsConfig);
-            SndModuleSettings<SndMouseHighlighterSettings> ipcMessage = new SndModuleSettings<SndMouseHighlighterSettings>(outsettings);
+            SndMouseHighlighterSettings outsettings = new(MouseHighlighterSettingsConfig);
+            SndModuleSettings<SndMouseHighlighterSettings> ipcMessage = new(outsettings);
             SendConfigMSG(ipcMessage.ToJsonString());
             SettingsUtils.SaveSettings(MouseHighlighterSettingsConfig.ToJsonString(), MouseHighlighterSettings.ModuleName);
         }
@@ -660,7 +660,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     GeneralSettingsConfig.Enabled.MousePointerCrosshairs = value;
                     OnPropertyChanged(nameof(_isMousePointerCrosshairsEnabled));
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
 
                     NotifyMousePointerCrosshairsPropertyChanged();
@@ -876,8 +876,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             OnPropertyChanged(propertyName);
 
-            SndMousePointerCrosshairsSettings outsettings = new SndMousePointerCrosshairsSettings(MousePointerCrosshairsSettingsConfig);
-            SndModuleSettings<SndMousePointerCrosshairsSettings> ipcMessage = new SndModuleSettings<SndMousePointerCrosshairsSettings>(outsettings);
+            SndMousePointerCrosshairsSettings outsettings = new(MousePointerCrosshairsSettingsConfig);
+            SndModuleSettings<SndMousePointerCrosshairsSettings> ipcMessage = new(outsettings);
             SendConfigMSG(ipcMessage.ToJsonString());
             SettingsUtils.SaveSettings(MousePointerCrosshairsSettingsConfig.ToJsonString(), MousePointerCrosshairsSettings.ModuleName);
         }

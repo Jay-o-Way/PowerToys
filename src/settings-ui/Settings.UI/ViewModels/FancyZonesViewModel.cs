@@ -193,7 +193,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     // Set the status of FancyZones in the general settings configuration
                     GeneralSettingsConfig.Enabled.FancyZones = value;
-                    OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                     SendConfigMSG(snd.ToString());
                     OnPropertyChanged(nameof(IsEnabled));

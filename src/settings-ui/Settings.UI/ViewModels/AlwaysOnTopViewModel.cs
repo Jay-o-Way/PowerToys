@@ -93,7 +93,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     // Set the status in the general settings configuration
                     GeneralSettingsConfig.Enabled.AlwaysOnTop = value;
-                    OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                     SendConfigMSG(snd.ToString());
                     OnPropertyChanged(nameof(IsEnabled));

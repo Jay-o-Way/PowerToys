@@ -136,7 +136,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     GeneralSettingsConfig.Enabled.Peek = value;
                     OnPropertyChanged(nameof(IsEnabled));
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
                 }
             }

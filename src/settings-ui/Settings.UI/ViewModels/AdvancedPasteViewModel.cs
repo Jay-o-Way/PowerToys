@@ -36,7 +36,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         private GeneralSettings GeneralSettingsConfig { get; set; }
 
         private readonly ISettingsUtils _settingsUtils;
-        private readonly System.Threading.Lock _delayedActionLock = new System.Threading.Lock();
+        private readonly System.Threading.Lock _delayedActionLock = new();
 
         private readonly AdvancedPasteSettings _advancedPasteSettings;
         private readonly AdvancedPasteAdditionalActions _additionalActions;
@@ -155,7 +155,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private bool OpenAIKeyExists()
         {
-            PasswordVault vault = new PasswordVault();
+            PasswordVault vault = new();
             PasswordCredential cred = null;
 
             try
@@ -415,7 +415,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             try
             {
-                PasswordVault vault = new PasswordVault();
+                PasswordVault vault = new();
                 PasswordCredential cred = vault.Retrieve("https://platform.openai.com/api-keys", "PowerToys_AdvancedPaste_OpenAIKey");
                 vault.Remove(cred);
                 OnPropertyChanged(nameof(IsOpenAIEnabled));

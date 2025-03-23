@@ -146,7 +146,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                         editor.CloseMainWindow();
                     }
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
 
                     SendConfigMSG(outgoing.ToString());
                 }
@@ -333,7 +333,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             try
             {
                 // retry loop for reading
-                CancellationTokenSource ts = new CancellationTokenSource();
+                CancellationTokenSource ts = new();
                 Task t = Task.Run(() =>
                 {
                     while (!readSuccessfully && !ts.IsCancellationRequested)

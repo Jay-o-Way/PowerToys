@@ -64,7 +64,7 @@ namespace Microsoft.PowerToys.Settings.UI
                     double dpiScale = (float)this.GetDpiForWindow() / 96;
 
                     // Position the window so that it's inside the display are closest to the point.
-                    POINT newPosition = new POINT(FlyoutAppearPosition.Value.X - (int)(dpiScale * WindowWidth / 2), FlyoutAppearPosition.Value.Y - (int)(dpiScale * WindowHeight / 2));
+                    POINT newPosition = new(FlyoutAppearPosition.Value.X - (int)(dpiScale * WindowWidth / 2), FlyoutAppearPosition.Value.Y - (int)(dpiScale * WindowHeight / 2));
                     if (newPosition.X < displayArea.WorkArea.X)
                     {
                         newPosition.X = displayArea.WorkArea.X;

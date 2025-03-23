@@ -42,7 +42,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             }
             catch (Exception)
             {
-                FileLocksmithLocalProperties localSettings = new FileLocksmithLocalProperties();
+                FileLocksmithLocalProperties localSettings = new();
                 Settings = new FileLocksmithSettings(localSettings);
                 _settingsUtils.SaveSettings(localSettings.ToJsonString(), GetSettingsSubPath(), "file-locksmith-settings.json");
             }
@@ -93,7 +93,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     GeneralSettingsConfig.Enabled.FileLocksmith = value;
                     OnPropertyChanged(nameof(IsFileLocksmithEnabled));
 
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
 
                     // TODO: Implement when this module has properties.

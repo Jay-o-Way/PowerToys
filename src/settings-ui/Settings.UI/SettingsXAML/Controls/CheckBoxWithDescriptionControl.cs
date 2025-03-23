@@ -36,7 +36,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
 
         private void CheckBoxSubTextControl_Loaded(object sender, RoutedEventArgs e)
         {
-            StackPanel panel = new StackPanel() { Orientation = Orientation.Vertical };
+            StackPanel panel = new() { Orientation = Orientation.Vertical };
             panel.Children.Add(new TextBlock() { Text = Header, TextWrapping = TextWrapping.WrapWholeWords });
 
             // Add text box only if the description is not empty. Required for additional plugin options.

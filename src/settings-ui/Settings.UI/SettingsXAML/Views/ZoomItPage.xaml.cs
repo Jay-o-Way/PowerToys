@@ -22,7 +22,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             // this code was changed to solve the problem with WinUI3 that prevents to select a file
             // while running elevated, when the issue is solved in WinUI3 it should be changed back
-            OpenFileName openFileName = new OpenFileName();
+            OpenFileName openFileName = new();
             openFileName.StructSize = Marshal.SizeOf(openFileName);
             openFileName.Filter = filter;
 
@@ -53,12 +53,12 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             }
             else
             {
-                LOGFONT logFont = new LOGFONT();
+                LOGFONT logFont = new();
                 logFont.lfHeight = -21;
                 Marshal.StructureToPtr(logFont, pLogFont, false);
             }
 
-            CHOOSEFONT chooseFont = new CHOOSEFONT();
+            CHOOSEFONT chooseFont = new();
             IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(App.GetSettingsWindow());
             chooseFont.hwndOwner = windowHandle;
             chooseFont.Flags = (int)(CHOOSE_FONT_FLAGS.CF_SCREENFONTS | CHOOSE_FONT_FLAGS.CF_INITTOLOGFONTSTRUCT | CHOOSE_FONT_FLAGS.CF_LIMITSIZE);

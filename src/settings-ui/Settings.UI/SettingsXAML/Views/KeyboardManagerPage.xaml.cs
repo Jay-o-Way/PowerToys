@@ -62,7 +62,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             {
                 if (firstRemap.NewRemapKeys == secondRemap.NewRemapKeys)
                 {
-                    KeysDataModel combinedRemap = new KeysDataModel
+                    KeysDataModel combinedRemap = new()
                     {
                         OriginalKeys = combinedKey.ToString(CultureInfo.InvariantCulture),
                         NewRemapKeys = firstRemap.NewRemapKeys,

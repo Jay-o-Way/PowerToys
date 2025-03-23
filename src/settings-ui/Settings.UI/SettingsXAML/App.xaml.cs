@@ -257,7 +257,7 @@ namespace Microsoft.PowerToys.Settings.UI
                 if (ShowOobe)
                 {
                     PowerToysTelemetry.Log.WriteEvent(new OobeStartedEvent());
-                    OobeWindow oobeWindow = new OobeWindow(OOBE.Enums.PowerToysModules.Overview);
+                    OobeWindow oobeWindow = new(OOBE.Enums.PowerToysModules.Overview);
                     oobeWindow.Activate();
                     oobeWindow.ExtendsContentIntoTitleBar = true;
                     WindowHelpers.ForceTopBorder1PixelInsetOnWindows10(WindowNative.GetWindowHandle(settingsWindow));
@@ -266,7 +266,7 @@ namespace Microsoft.PowerToys.Settings.UI
                 else if (ShowScoobe)
                 {
                     PowerToysTelemetry.Log.WriteEvent(new ScoobeStartedEvent());
-                    OobeWindow scoobeWindow = new OobeWindow(OOBE.Enums.PowerToysModules.WhatsNew);
+                    OobeWindow scoobeWindow = new(OOBE.Enums.PowerToysModules.WhatsNew);
                     scoobeWindow.Activate();
                     scoobeWindow.ExtendsContentIntoTitleBar = true;
                     WindowHelpers.ForceTopBorder1PixelInsetOnWindows10(WindowNative.GetWindowHandle(settingsWindow));
@@ -370,7 +370,7 @@ namespace Microsoft.PowerToys.Settings.UI
         }
 
         private static ISettingsUtils settingsUtils = new SettingsUtils();
-        private static ThemeService themeService = new ThemeService(SettingsRepository<GeneralSettings>.GetInstance(settingsUtils));
+        private static ThemeService themeService = new(SettingsRepository<GeneralSettings>.GetInstance(settingsUtils));
 
         public static ThemeService ThemeService => themeService;
 

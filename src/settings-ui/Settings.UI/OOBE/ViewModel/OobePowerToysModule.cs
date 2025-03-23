@@ -9,7 +9,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.ViewModel
 {
     public class OobePowerToysModule
     {
-        private System.Diagnostics.Stopwatch timeOpened = new System.Diagnostics.Stopwatch();
+        private System.Diagnostics.Stopwatch timeOpened = new();
 
         public string ModuleName { get; set; }
 

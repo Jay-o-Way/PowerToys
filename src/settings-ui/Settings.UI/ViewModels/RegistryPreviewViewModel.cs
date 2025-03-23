@@ -19,7 +19,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
     {
         private GeneralSettings GeneralSettingsConfig { get; set; }
 
-        public ButtonClickCommand LaunchEventHandler => new ButtonClickCommand(Launch);
+        public ButtonClickCommand LaunchEventHandler => new(Launch);
 
         public RegistryPreviewViewModel(ISettingsRepository<GeneralSettings> settingsRepository, ISettingsRepository<RegistryPreviewSettings> registryPreviewSettingsRepository, Func<string, int> ipcMSGCallBackFunc)
         {
@@ -68,7 +68,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     OnPropertyChanged(nameof(IsRegistryPreviewEnabled));
 
                     GeneralSettingsConfig.Enabled.RegistryPreview = value;
-                    OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoing.ToString());
                 }
             }

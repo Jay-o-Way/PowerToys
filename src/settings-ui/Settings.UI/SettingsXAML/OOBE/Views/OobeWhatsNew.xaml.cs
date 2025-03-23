@@ -96,13 +96,13 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
             // Get the latest releases
             var latestReleases = releases.OrderByDescending(release => release.PublishedDate).Take(5);
 
-            StringBuilder releaseNotesHtmlBuilder = new StringBuilder(string.Empty);
+            StringBuilder releaseNotesHtmlBuilder = new(string.Empty);
 
             // Regex to remove installer hash sections from the release notes.
-            Regex removeHashRegex = new Regex(RemoveInstallerHashesRegex, RemoveInstallerHashesRegexOptions);
+            Regex removeHashRegex = new(RemoveInstallerHashesRegex, RemoveInstallerHashesRegexOptions);
 
             // Regex to remove installer hash sections from the release notes, since there'll be no Highlights section for hotfix releases.
-            Regex removeHotfixHashRegex = new Regex(RemoveHotFixInstallerHashesRegex, RemoveInstallerHashesRegexOptions);
+            Regex removeHotfixHashRegex = new(RemoveHotFixInstallerHashesRegex, RemoveInstallerHashesRegexOptions);
             int counter = 0;
             foreach (var release in latestReleases)
             {

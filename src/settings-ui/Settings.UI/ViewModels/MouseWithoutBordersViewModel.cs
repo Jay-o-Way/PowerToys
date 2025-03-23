@@ -42,7 +42,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private readonly Lock _machineMatrixStringLock = new();
 
-        private static readonly Dictionary<SocketStatus, Brush> StatusColors = new Dictionary<SocketStatus, Brush>()
+        private static readonly Dictionary<SocketStatus, Brush> StatusColors = new()
 {
     { SocketStatus.NA, new SolidColorBrush(ColorHelper.FromArgb(0, 0x71, 0x71, 0x71)) },
     { SocketStatus.Resolving, new SolidColorBrush(Colors.Yellow) },
@@ -62,9 +62,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public bool CanUninstallService { get => GeneralSettingsConfig.IsElevated && !UseService; }
 
-        public ButtonClickCommand AddFirewallRuleEventHandler => new ButtonClickCommand(AddFirewallRule);
+        public ButtonClickCommand AddFirewallRuleEventHandler => new(AddFirewallRule);
 
-        public ButtonClickCommand UninstallServiceEventHandler => new ButtonClickCommand(UninstallService);
+        public ButtonClickCommand UninstallServiceEventHandler => new(UninstallService);
 
         public bool ShowOriginalUI
         {
@@ -276,7 +276,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private static Task _machinePollingThreadTask;
 
-        private static VisualStudio.Threading.AsyncSemaphore _ipcSemaphore = new VisualStudio.Threading.AsyncSemaphore(1);
+        private static VisualStudio.Threading.AsyncSemaphore _ipcSemaphore = new(1);
 
         private sealed partial class SyncHelper : IDisposable
         {
@@ -662,7 +662,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                         _uiDispatcherQueue.TryEnqueue(DispatcherQueuePriority.Normal, () =>
                         {
-                            OutGoingGeneralSettings outgoing = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                            OutGoingGeneralSettings outgoing = new(GeneralSettingsConfig);
                             SendConfigMSG(outgoing.ToString());
 
                             NotifyPropertyChanged();

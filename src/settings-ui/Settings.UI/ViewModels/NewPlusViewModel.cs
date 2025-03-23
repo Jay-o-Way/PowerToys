@@ -97,7 +97,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     OnPropertyChanged(nameof(IsReplaceVariablesSettingGPOConfigured));
                     OnPropertyChanged(nameof(IsReplaceVariablesSettingsCardEnabled));
 
-                    OutGoingGeneralSettings outgoingMessage = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings outgoingMessage = new(GeneralSettingsConfig);
                     SendConfigMSG(outgoingMessage.ToString());
 
                     NotifySettingsChanged();
@@ -203,9 +203,9 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             get => _enabledStateIsGPOConfigured;
         }
 
-        public ButtonClickCommand OpenCurrentNewTemplateFolder => new ButtonClickCommand(OpenNewTemplateFolder);
+        public ButtonClickCommand OpenCurrentNewTemplateFolder => new(OpenNewTemplateFolder);
 
-        public ButtonClickCommand PickAnotherNewTemplateFolder => new ButtonClickCommand(PickNewTemplateFolder);
+        public ButtonClickCommand PickAnotherNewTemplateFolder => new(PickNewTemplateFolder);
 
         private void NotifySettingsChanged()
         {

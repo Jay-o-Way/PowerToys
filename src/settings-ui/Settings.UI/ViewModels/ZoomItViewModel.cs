@@ -63,7 +63,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             }
         }
 
-        private static readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
+        private static readonly JsonSerializerOptions _serializerOptions = new()
         {
             MaxDepth = 0,
             IncludeFields = true,
@@ -142,7 +142,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
                     // Set the status in the general settings configuration
                     GeneralSettingsConfig.Enabled.ZoomIt = value;
-                    OutGoingGeneralSettings snd = new OutGoingGeneralSettings(GeneralSettingsConfig);
+                    OutGoingGeneralSettings snd = new(GeneralSettingsConfig);
 
                     SendConfigMSG(snd.ToString());
                     OnPropertyChanged(nameof(IsEnabled));

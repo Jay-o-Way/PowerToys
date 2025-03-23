@@ -188,7 +188,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         }
 
         // Supported languages. Taken from Resources.wxs + default + en-US
-        private Dictionary<string, string> langTagsAndIds = new Dictionary<string, string>
+        private Dictionary<string, string> langTagsAndIds = new()
         {
             { string.Empty, "Default_language" },
             { "ar-SA", "Arabic_Saudi_Arabia_Language" },
@@ -936,7 +936,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             // Notify UI of property change
             OnPropertyChanged(propertyName);
 
-            OutGoingGeneralSettings outsettings = new OutGoingGeneralSettings(GeneralSettingsConfig);
+            OutGoingGeneralSettings outsettings = new(GeneralSettingsConfig);
 
             SendConfigMSG(outsettings.ToString());
 
@@ -1046,8 +1046,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             GeneralSettingsConfig.CustomActionName = "check_for_updates";
 
-            OutGoingGeneralSettings outsettings = new OutGoingGeneralSettings(GeneralSettingsConfig);
-            GeneralSettingsCustomAction customaction = new GeneralSettingsCustomAction(outsettings);
+            OutGoingGeneralSettings outsettings = new(GeneralSettingsConfig);
+            GeneralSettingsCustomAction customaction = new(outsettings);
 
             SendCheckForUpdatesConfigMSG(customaction.ToString());
         }
@@ -1083,8 +1083,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             GeneralSettingsConfig.CustomActionName = "request_update_state_date";
 
-            OutGoingGeneralSettings outsettings = new OutGoingGeneralSettings(GeneralSettingsConfig);
-            GeneralSettingsCustomAction customaction = new GeneralSettingsCustomAction(outsettings);
+            OutGoingGeneralSettings outsettings = new(GeneralSettingsConfig);
+            GeneralSettingsCustomAction customaction = new(outsettings);
 
             SendCheckForUpdatesConfigMSG(customaction.ToString());
         }
@@ -1093,8 +1093,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             GeneralSettingsConfig.CustomActionName = "restart_elevation";
 
-            OutGoingGeneralSettings outsettings = new OutGoingGeneralSettings(GeneralSettingsConfig);
-            GeneralSettingsCustomAction customaction = new GeneralSettingsCustomAction(outsettings);
+            OutGoingGeneralSettings outsettings = new(GeneralSettingsConfig);
+            GeneralSettingsCustomAction customaction = new(outsettings);
 
             SendRestartAsAdminConfigMSG(customaction.ToString());
         }
@@ -1109,8 +1109,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         {
             GeneralSettingsConfig.CustomActionName = "restart_maintain_elevation";
 
-            OutGoingGeneralSettings outsettings = new OutGoingGeneralSettings(GeneralSettingsConfig);
-            GeneralSettingsCustomAction customaction = new GeneralSettingsCustomAction(outsettings);
+            OutGoingGeneralSettings outsettings = new(GeneralSettingsConfig);
+            GeneralSettingsCustomAction customaction = new(outsettings);
 
             var dataToSend = customaction.ToString();
             dataToSend = JsonSerializer.Serialize(ActionMessage.Create("restart_maintain_elevation"), SourceGenerationContextContext.Default.ActionMessage);
@@ -1131,7 +1131,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         public void RefreshUpdatingState()
         {
-            object oLock = new object();
+            object oLock = new();
             lock (oLock)
             {
                 var config = UpdatingSettings.LoadSettings();
@@ -1223,7 +1223,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private void NotifyLanguageChanged()
         {
-            OutGoingLanguageSettings outsettings = new OutGoingLanguageSettings(Languages[_languagesIndex].Tag);
+            OutGoingLanguageSettings outsettings = new(Languages[_languagesIndex].Tag);
 
             SendConfigMSG(outsettings.ToString());
         }
@@ -1294,7 +1294,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
             string tracerptPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "system32");
 
-            ETLConverter converter = new ETLConverter(etwDirPath, tracerptPath);
+            ETLConverter converter = new(etwDirPath, tracerptPath);
             Task.Run(() => converter.ConvertDiagnosticsETLsAsync()).Wait();
 
             if (Directory.Exists(etwDirPath))
