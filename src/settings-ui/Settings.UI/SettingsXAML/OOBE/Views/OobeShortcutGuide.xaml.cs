@@ -52,7 +52,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
             ViewModel.LogOpeningModuleEvent();
             var settingsProperties = SettingsRepository<ShortcutGuideSettings>.GetInstance(new SettingsUtils()).SettingsConfig.Properties;
 
-            if ((bool)settingsProperties.UseLegacyPressWinKeyBehavior.Value)
+            if (settingsProperties.UseLegacyPressWinKeyBehavior.Value)
             {
                 HotkeyControl.Keys = [92];
             }
