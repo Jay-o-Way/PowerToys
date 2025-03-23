@@ -36,7 +36,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             if (deleteRowButton != null)
             {
                 ImageSize x = (ImageSize)deleteRowButton.DataContext;
-                var resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
+                var resourceLoader = ResourceLoaderInstance.ResourceLoader;
 
                 ContentDialog dialog = new();
                 dialog.XamlRoot = RootPage.XamlRoot;

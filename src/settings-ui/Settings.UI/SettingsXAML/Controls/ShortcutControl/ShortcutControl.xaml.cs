@@ -50,7 +50,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
                 return;
             }
 
-            var resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
+            var resourceLoader = ResourceLoaderInstance.ResourceLoader;
 
             var newValue = (bool)(e?.NewValue ?? false);
 
@@ -111,7 +111,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             Unloaded += ShortcutControl_Unloaded;
             Loaded += ShortcutControl_Loaded;
 
-            var resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
+            var resourceLoader = ResourceLoaderInstance.ResourceLoader;
 
             // We create the Dialog in C# because doing it in XAML is giving WinUI/XAML Island bugs when using dark theme.
             shortcutDialog = new ContentDialog

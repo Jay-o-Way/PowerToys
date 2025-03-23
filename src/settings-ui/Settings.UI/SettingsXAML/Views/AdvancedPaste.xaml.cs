@@ -48,7 +48,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
 
         private async void AdvancedPaste_EnableAIButton_Click(object sender, RoutedEventArgs e)
         {
-            var resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
+            var resourceLoader = ResourceLoaderInstance.ResourceLoader;
             EnableAIDialog.PrimaryButtonText = resourceLoader.GetString("EnableAIDialog_SaveBtnText");
             EnableAIDialog.SecondaryButtonText = resourceLoader.GetString("EnableAIDialog_CancelBtnText");
             EnableAIDialog.PrimaryButtonCommand = SaveOpenAIKeyCommand;

@@ -36,7 +36,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             InitializeComponent();
 
             // Load string resources
-            var loader = Helpers.ResourceLoaderInstance.ResourceLoader;
+            var loader = ResourceLoaderInstance.ResourceLoader;
             var settingsUtils = new SettingsUtils();
 
             Action stateUpdatingAction = () =>
@@ -56,7 +56,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
                     // in order to keep the message for about 5 seconds after the last call
                     // and not need any lock/thread-synch, use an OK-To-Hide time, and wait just a little longer than that.
                     OkToHideBackupAndRestoreMessageTime = DateTime.UtcNow.AddMilliseconds(messageShowTimeIs - 16);
-                    await System.Threading.Tasks.Task.Delay(messageShowTimeIs);
+                    await Task.Delay(messageShowTimeIs);
                     if (DateTime.UtcNow > OkToHideBackupAndRestoreMessageTime)
                     {
                         ViewModel.HideBackupAndRestoreMessageArea();
@@ -91,7 +91,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             try
             {
-                Helpers.StartProcessHelper.Start(Helpers.StartProcessHelper.ColorsSettings);
+                StartProcessHelper.Start(StartProcessHelper.ColorsSettings);
             }
             catch (Exception ex)
             {
@@ -103,7 +103,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             try
             {
-                Helpers.StartProcessHelper.Start(Helpers.StartProcessHelper.DiagnosticsAndFeedback);
+                StartProcessHelper.Start(StartProcessHelper.DiagnosticsAndFeedback);
             }
             catch (Exception ex)
             {

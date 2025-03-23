@@ -42,7 +42,7 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
             // Add text box only if the description is not empty. Required for additional plugin options.
             if (!string.IsNullOrWhiteSpace(Description))
             {
-              panel.Children.Add(new IsEnabledTextBlock() { Style = (Style)App.Current.Resources["SecondaryIsEnabledTextBlockStyle"], Text = Description });
+              panel.Children.Add(new IsEnabledTextBlock() { Style = (Style)Application.Current.Resources["SecondaryIsEnabledTextBlockStyle"], Text = Description });
             }
 
             _checkBoxSubTextControl.Content = panel;

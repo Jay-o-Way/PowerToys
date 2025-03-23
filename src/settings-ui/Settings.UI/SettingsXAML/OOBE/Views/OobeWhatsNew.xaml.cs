@@ -61,7 +61,7 @@ namespace Microsoft.PowerToys.Settings.UI.OOBE.Views
 
             bool registryValue = DataDiagnosticsSettings.GetEnabledValue();
 
-            bool isFirstRunAfterUpdate = (App.Current as App).ShowScoobe;
+            bool isFirstRunAfterUpdate = (Microsoft.UI.Xaml.Application.Current as App).ShowScoobe;
             return isFirstRunAfterUpdate && registryValue == false;
         }
 

@@ -139,7 +139,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         }
 
         private static Lazy<Bitmap> MouseJumpDesktopImage => new(
-            () => MouseUtilsViewModel.LoadImageResource("UI/Images/MouseJump-Desktop.png")
+            () => LoadImageResource("UI/Images/MouseJump-Desktop.png")
         );
 
         public ImageSource MouseJumpPreviewImage
@@ -222,7 +222,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     screens: screens,
                     activatedLocation: new(0, 0));
 
-                var desktopImage = MouseUtilsViewModel.MouseJumpDesktopImage.Value;
+                var desktopImage = MouseJumpDesktopImage.Value;
                 var imageCopyService = new StaticImageRegionCopyService(desktopImage);
                 using var previewImage = DrawingHelper.RenderPreview(
                     previewLayout,

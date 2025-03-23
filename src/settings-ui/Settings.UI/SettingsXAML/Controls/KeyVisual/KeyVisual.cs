@@ -137,19 +137,19 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
         {
             if (VisualType == VisualType.Small)
             {
-                return (Style)App.Current.Resources["Small" + styleName];
+                return (Style)Application.Current.Resources["Small" + styleName];
             }
             else if (VisualType == VisualType.SmallOutline)
             {
-                return (Style)App.Current.Resources["SmallOutline" + styleName];
+                return (Style)Application.Current.Resources["SmallOutline" + styleName];
             }
             else if (VisualType == VisualType.TextOnly)
             {
-                return (Style)App.Current.Resources["Only" + styleName];
+                return (Style)Application.Current.Resources["Only" + styleName];
             }
             else
             {
-                return (Style)App.Current.Resources["Default" + styleName];
+                return (Style)Application.Current.Resources["Default" + styleName];
             }
         }
 
@@ -157,11 +157,11 @@ namespace Microsoft.PowerToys.Settings.UI.Controls
         {
             if (VisualType == VisualType.Small || VisualType == VisualType.SmallOutline)
             {
-                return (double)App.Current.Resources["SmallIconSize"];
+                return (double)Application.Current.Resources["SmallIconSize"];
             }
             else
             {
-                return (double)App.Current.Resources["DefaultIconSize"];
+                return (double)Application.Current.Resources["DefaultIconSize"];
             }
         }
 

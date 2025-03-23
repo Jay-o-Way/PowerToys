@@ -21,7 +21,7 @@ namespace Microsoft.PowerToys.Settings.UI.Converters
         // to select in the Segmented control on the Mouse Jump settings page
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var previewType = MouseJumpPreviewTypeConverter.DefaultPreviewType;
+            var previewType = DefaultPreviewType;
 
             if (value is not string previewTypeName)
             {
@@ -39,7 +39,7 @@ namespace Microsoft.PowerToys.Settings.UI.Converters
             }
 
             return Array.IndexOf(
-                MouseJumpPreviewTypeConverter.PreviewTypeOrder,
+                PreviewTypeOrder,
                 previewType);
         }
 
@@ -48,19 +48,19 @@ namespace Microsoft.PowerToys.Settings.UI.Converters
         // for that index.
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            var previewType = MouseJumpPreviewTypeConverter.DefaultPreviewType;
+            var previewType = DefaultPreviewType;
 
             if (value is not int segmentedIndex)
             {
                 // the value isn't an int so just use the default preview type
             }
-            else if ((segmentedIndex < 0) || (segmentedIndex > MouseJumpPreviewTypeConverter.PreviewTypeOrder.Length))
+            else if ((segmentedIndex < 0) || (segmentedIndex > PreviewTypeOrder.Length))
             {
                 // not a valid selected index so just use the default preview type
             }
             else
             {
-                previewType = MouseJumpPreviewTypeConverter.PreviewTypeOrder[segmentedIndex];
+                previewType = PreviewTypeOrder[segmentedIndex];
             }
 
             return previewType.ToString();

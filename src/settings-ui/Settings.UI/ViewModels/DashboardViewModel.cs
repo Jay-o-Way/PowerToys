@@ -41,7 +41,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private ISettingsRepository<GeneralSettings> _settingsRepository;
         private GeneralSettings generalSettingsConfig;
-        private Windows.ApplicationModel.Resources.ResourceLoader resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
+        private Windows.ApplicationModel.Resources.ResourceLoader resourceLoader = ResourceLoaderInstance.ResourceLoader;
 
         public DashboardViewModel(ISettingsRepository<GeneralSettings> settingsRepository, Func<string, int> ipcMSGCallBackFunc)
         {
@@ -126,7 +126,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
 
         private void EnabledChangedOnUI(DashboardListItem dashboardListItem)
         {
-            Views.ShellPage.UpdateGeneralSettingsCallback(dashboardListItem.Tag, dashboardListItem.IsEnabled);
+            ShellPage.UpdateGeneralSettingsCallback(dashboardListItem.Tag, dashboardListItem.IsEnabled);
 
             if (dashboardListItem.Tag == ModuleType.NewPlus && dashboardListItem.IsEnabled)
             {

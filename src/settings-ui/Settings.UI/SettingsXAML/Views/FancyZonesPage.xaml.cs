@@ -23,7 +23,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
 
         private void OpenColorsSettings_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
-            Helpers.StartProcessHelper.Start(Helpers.StartProcessHelper.ColorsSettings);
+            StartProcessHelper.Start(StartProcessHelper.ColorsSettings);
         }
 
         public void RefreshEnabledState()

@@ -85,7 +85,7 @@ namespace Microsoft.PowerToys.Settings.UI
             string appLanguage = LanguageHelper.LoadLanguage();
             if (!string.IsNullOrEmpty(appLanguage))
             {
-                Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = appLanguage;
+                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = appLanguage;
             }
 
             InitializeComponent();

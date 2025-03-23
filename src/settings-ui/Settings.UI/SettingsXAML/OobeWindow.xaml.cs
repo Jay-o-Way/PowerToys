@@ -78,7 +78,7 @@ namespace Microsoft.PowerToys.Settings.UI
 
             SizeChanged += OobeWindow_SizeChanged;
 
-            var loader = Helpers.ResourceLoaderInstance.ResourceLoader;
+            var loader = ResourceLoaderInstance.ResourceLoader;
             Title = loader.GetString("OobeWindow_Title");
 
             if (shellPage != null)

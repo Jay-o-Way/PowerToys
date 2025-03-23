@@ -31,7 +31,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             generalSettingsConfig = settingsRepository.SettingsConfig;
             generalSettingsConfig.AddEnabledModuleChangeNotification(ModuleEnabledChangedOnSettingsPage);
 
-            resourceLoader = Helpers.ResourceLoaderInstance.ResourceLoader;
+            resourceLoader = ResourceLoaderInstance.ResourceLoader;
             FlyoutMenuItems = [];
 
             foreach (ModuleType moduleType in Enum.GetValues<ModuleType>())
